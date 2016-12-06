@@ -1,19 +1,19 @@
 body {
-/*    background-image: url("../images/login_background.jpg");*/
-    background-color: #78CAD2;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-attachment: fixed;
+    background:  url("../images/blurred_background.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    padding-top:10%;
+        font-weight: 700;
+    letter-spacing: 1px;
 }
 
 #outPopUp {
   position: absolute;
-  width: 1200px;
-  height: 500px;
+  width: 500px;
+  height: 300px;
   z-index: 15;
-  top: 25%;
-  left: 25%;
 }
 
 .box {
@@ -64,4 +64,29 @@ body {
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
     color: #fff;
     transition: all 0.5s ease 0s;
+}
+
+.btn {
+    padding: 9px 18px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
 }
