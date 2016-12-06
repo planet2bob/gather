@@ -6,25 +6,48 @@
     <title>Gather Login</title>
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap-theme.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css"> </head>
-
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css"> </head>    
+    
 <body>
-    <div id="outPopUp">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="box">
-                <div class="box-icon"> <span class="fa fa-4x fa-html5"></span> </div>
-                <div class="info">
-                    <h4 class="text-center">gather</h4>
-                    <form>
+<!--  MOVE THIS TO JS FOLDER LATER  -->
+    <script> 
+function toggle() {
+	var ele = document.getElementById("toggleText");
+	var text = document.getElementById("displayText");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "Signing Up";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "Already Have an Account";
+	}
+} 
+</script>
+    
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="box">
+            <div class="box-icon"> <span class="fa fa-4x fa-html5"></span> </div>
+            <div class="info">
+                <h4 class="text-center">gather</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" class="form-control" id="email"> </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd"> </div>
+                    <div class="confirmations" id="toggleText" style="display: none">
                         <div class="form-group">
-                            <label for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email"> </div>
+                            <label for="email">Confirm Email:</label>
+                            <input type="email" class="form-control" id="email-conf"> </div>
                         <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd"> </div>
-                        <button type="submit" class="btn btn-default">Log In</button>
-                    </form>
-                </div>
+                            <label for="pwd">Confirm Password:</label>
+                            <input type="password" class="form-control" id="pwd-conf"> </div>
+                    </div>
+                    <a class="btn btn-info" id="displayText" href="javascript:toggle();">Signing Up</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
