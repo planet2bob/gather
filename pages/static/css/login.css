@@ -64,29 +64,27 @@ body {
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
     color: #fff;
     transition: all 0.5s ease 0s;
-}
+}   
 
-.btn {
-    padding: 9px 18px;
-    border: 0 none;
-    font-weight: 700;
+.btn{
+    background-color: !important;
     letter-spacing: 1px;
 }
- 
+
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
- 
-.btn-primary {
-    background: #0099cc;
-    color: #ffffff;
+
+.about{
+    padding-top: .5em;
 }
- 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+
+#about-us:link{
+    color: white;
 }
- 
-.btn-primary:active, .btn-primary.active {
-    background: #007299;
-    box-shadow: none;
+#about-us:visited{
+    color: white;
+}
+#about-us:hover{
+    color: white;
 }
