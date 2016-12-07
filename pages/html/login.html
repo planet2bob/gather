@@ -14,8 +14,8 @@
 <body>
     <!--  MOVE THIS TO JS FOLDER LATER  -->
     <script>
-        function toggle() {
-            var ele = document.getElementById("toggleText");
+        function toggleSignUp() {
+            var ele = document.getElementById("toggleSignUpText");
             var text = document.getElementById("displayText");
             if (ele.style.display == "block") {
                 ele.style.display = "none";
@@ -32,23 +32,23 @@
             <div class="box-icon"> <span class="fa fa-4x fa-html5"></span> </div>
             <div class="info">
                 <h4 class="text-center">gather</h4>
-                <form>
+            <form>
                     <div class="form-group">
                         <label for="email">Email Address:</label>
                         <input type="email" class="form-control" id="email"> </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
                         <input type="password" class="form-control" id="pwd"> </div>
-                    <div class="confirmations" id="toggleText" style="display: none">
+                    <div class="confirmations" id="toggleSignUpText" style="display: none">
                         <div class="form-group">
                             <label for="email">Confirm Email:</label>
                             <input type="email" class="form-control" id="email-conf"> </div>
                         <div class="form-group">
                             <label for="pwd">Confirm Password:</label>
                             <input type="password" class="form-control" id="pwd-conf"> </div>
-                    </div> <a class="btn btn-info" id="displayText" href="javascript:toggle();">Signing Up</a>
+                    </div> <a class="btn btn-info" id="displayText" href="javascript:toggleSignUp();">Signing Up</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                    </form>
             </div>
         </div>
         <div class="about"><a id="about-us" href="about.html">About Us</a></div>
