@@ -2,7 +2,6 @@ body {}
 
 .btn {
     background-color: !important;
-    letter-spacing: 1px;
 }
 
 .btn:focus,

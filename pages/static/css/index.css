@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+    
+html, body {
+  --standard-padding: 15px;
+  --standard-height: 91vh;
+}
+
+#text-title {
+  font-family: 'Lobster', cursive;
+  font-size: 5vh;
+}
+
+/* Set blue ish background color for the title */
+#title {
+  background-color: #DEF0F4;
+}
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {
+  height: var(--standard-height);
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+.alert {
+  border-radius: 15px;
+}
+
+#messages-box {
+  padding-top: var(--standard-padding);
+  height: 60vh;
+  overflow-y:scroll;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: var(--standard-padding);
+  }
+  .row.content {height: auto;} 
+}
