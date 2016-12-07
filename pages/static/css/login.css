@@ -42,9 +42,10 @@ body {
     vertical-align: middle;
 }
 .info h4 {
-    font-size: 26px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 35px;
+    letter-spacing: 0px;
+    text-transform: lowercase;
+    font-family: 'Lobster', cursive;
 }
 .info > p {
     color: #717171;
@@ -65,15 +66,6 @@ body {
     color: #fff;
     transition: all 0.5s ease 0s;
 }   
-
-.btn{
-    background-color: !important;
-    letter-spacing: 1px;
-}
-
-.btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
-}
 
 .about{
     padding-top: .5em;

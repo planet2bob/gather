@@ -1,0 +1,19 @@
+body {}
+
+.btn {
+    background-color: !important;
+    letter-spacing: 1px;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline: 0 none;
+}
+
+h4 {
+    font-size: 35px;
+    letter-spacing: 0px;
+    text-transform: lowercase;
+    font-family: 'Lobster', cursive;
+}
