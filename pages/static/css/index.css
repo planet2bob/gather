@@ -35,6 +35,10 @@ html, body {
   overflow-y:scroll;
 }
 
+#signature {
+  margin: -9px;
+}
+
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
   .sidenav {
