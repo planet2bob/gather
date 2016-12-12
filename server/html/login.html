@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gather Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='./js/bootstrap.min.js') }}"></script>
+    <link rel- "stylesheet" type="text/css" href="{{ url_for('static', filename='./css/normal.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/login.css') }}"> </head>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+<body>
+    <!--  MOVE THIS TO JS FOLDER LATER  -->
+    <script>
+        function toggleSignUp() {
+            var ele1 = document.getElementById("toggleEmailConfirmation");
+            var ele2 = document.getElementById("togglePasswordConfirmation");
+            var text = document.getElementById("displayText");
+            if (ele1.style.display == "block") {
+                ele1.style.display = "none";
+                ele2.style.display = "none";
+                text.innerHTML = "Signing Up";
+            }
+            else {
+                ele1.style.display = "block";
+                ele2.style.display = "block";
+                text.innerHTML = "Already Have an Account";
+            }
+        }
+    </script>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="box">
+            <div class="box-icon"> <span class="fa fa-4x fa-html5"></span> </div>
+            <div class="info">
+                <h4 class="text-center">gather</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" class="form-control" id="email"> </div>
+                     <div class="confirmations" id="toggleEmailConfirmation" style="display: none">
+                        <div class="form-group">
+                            <label for="email">Confirm Email Address:</label>
+                            <input type="email" class="form-control" id="email-conf"> </div></div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd"> </div>
+                    <div class="confirmations" id="togglePasswordConfirmation" style="display: none">
+                        <div class="form-group">
+                            <label for="pwd">Confirm Password:</label>
+                            <input type="password" class="form-control" id="pwd-conf"> </div>
+                    </div> <a class="btn btn-info" id="displayText" href="javascript:toggleSignUp();">Signing Up</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="about"><a id="about-us" href="about.html">About Us</a></div>
+    </div>
+</body>
+
+</html>
