@@ -31,7 +31,7 @@ html, body {
 
 #messages-box {
   padding-top: var(--standard-padding);
-  height: 60vh;
+  height: 70vh;
   overflow-y:scroll;
 }
 
