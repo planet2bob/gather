@@ -13,10 +13,16 @@
 
   <script src="{{ url_for('static', filename='./js/bootstrap.min.js') }}"></script>
 
+  <script type="text/javascript">
+    function startOnBottom(){
+      $('#messages-box').scrollTop($('#messages-box')[0].scrollHeight);
+    }
+  </script>
+
   <style>
   </style>
 </head>
-<body>
+<body onload = startOnBottom()>
 
 <div class="container-fluid" id="title">
 
@@ -26,7 +32,7 @@
       <h4 class="text-center" id="text-title">gather</h4>
     </div>
     <div class="col-sm-4 text-left">
-      <h4><small><span class="fa fa-cog pull-right"></span></small></h4>
+      <h4><small><span class="fa fa-cog pull-right" id="settings"></span></small></h4>
     </div>
   </div>
 
@@ -58,24 +64,24 @@
 
     <div class="col-sm-9 container-fluid">
       <div class="container-fluid" id="messages-box">
-        <div class="row" id="received-message">
-          <div class="alert alert-info col-sm-9">
+        <div class="row">
+          <div class="alert alert-info col-sm-9" id="received-message">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             <h6 class="pull-right text-muted" id="signature">RH <span class="fa fa-skype"></span></h6>
           </div>
         </div>
 
-        <div class="row" id="received-message">
-          <div class="alert alert-info col-sm-9">
+        <div class="row">
+          <div class="alert alert-info col-sm-9" id="received-message">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             <h6 class="pull-right text-muted" id="signature">RH <span class="fa fa-wechat"></span></h6>
           </div>
         </div> 
 
-        <div class="row" id="sent-message">
-          <div class="alert alert-success col-sm-9 pull-right">
+        <div class="row">
+          <div class="alert alert-success col-sm-9 pull-right" id="sent-message">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             <h6 class="pull-right text-muted" id="signature">CW <span class="fa fa-wechat"></span></h6>
@@ -84,7 +90,7 @@
 
       </div>
 
-      <hr id="break">
+      <hr>
 
       <div class="container-fluid" id="input-box">
         <form role="form">

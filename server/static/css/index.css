@@ -12,8 +12,14 @@ html, body {
 
 /* Set blue ish background color for the title */
 #title {
-  background-color: #DEF0F4;
+  background-color: #5497A7;
+  color: #FFFFFF;
 }
+
+#settings {
+  color: #FFFFFF;
+}
+
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
   height: var(--standard-height);
@@ -35,11 +41,21 @@ html, body {
   overflow-y:scroll;
 }
 
+#received-message {
+  background-color: #C5E7EA;
+  color: #50858B;
+}
+
+#sent-message {
+  background-color: #D3EADE;
+  color: #326B5D;
+}
+
 #signature {
   margin: -9px;
 }
 
-#break {
+hr {
   margin-top: 0px;
 }
 

@@ -2,6 +2,7 @@ body {}
 
 .btn {
     background-color: !important;
+    color: #50858B;
 }
 
 .btn:focus,
