@@ -45,10 +45,10 @@
             <div class="box-icon"> <span class="fa fa-4x fa-html5"></span> </div>
             <div class="info">
                 <h4 class="text-center">gather</h4>
-                <form class="form-group" action="http://localhost:5000/result" method="post">
+                <form class="form-group" action="http://localhost:5000/tryLogin" method="Post">
                     <div>
                         <label for="email">Email Address:</label>
-                        <input type="email" class="form-control" id="email"> </div><br> 
+                        <input type="email" class="form-control" id="email" name="email"> </div><br> 
                     <div class="confirmations" id="toggleEmailConfirmation" style="display: none">
                         <div class="form-group">
                             <label for="email">Confirm Email Address:</label>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd"> </div>
+                        <input type="password" class="form-control" id="pwd" name="pwd"> </div>
                     <div class="confirmations" id="togglePasswordConfirmation" style="display: none">
                         <div class="form-group">
                             <label for="pwd">Confirm Password:</label>

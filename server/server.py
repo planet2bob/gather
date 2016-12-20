@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__, template_folder='./html')
 @app.route("/")
 def hello():
@@ -7,6 +7,12 @@ def hello():
 @app.route("/login")
 def login():
     return render_template('login.html')
+
+@app.route("/tryLogin", methods=['POST'])
+def checkLogin():
+  email = request.form.getlist('email')[0]
+  pwd = request.form.getlist('pwd')[0]
+  return email + ', ' + pwd
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
