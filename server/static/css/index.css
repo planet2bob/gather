@@ -5,6 +5,15 @@ html, body {
   --standard-height: 91vh;
 }
 
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: var(--standard-padding);
+  }
+  .row.content {height: auto;} 
+}
+
 #text-title {
   font-family: 'Lobster', cursive;
   font-size: 5vh;
@@ -23,6 +32,13 @@ html, body {
 
 #settings {
   color: #FFFFFF;
+  background-color: #5497A7;
+  border: 0px;
+}
+
+.dropdown-menu {
+  width: 20vw;
+  height: 50vh;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
@@ -36,6 +52,19 @@ html, body {
   height: 100%;
   z-index: 0;
   position: relative;
+}
+
+#add-contact {
+  color: gray;
+}
+
+#contact-list {
+  height: 70vh;
+}
+
+#search-box{
+  vertical-align: bottom;
+  float: none;
 }
 
 .alert {
@@ -66,11 +95,6 @@ hr {
   margin-top: 0px;
 }
 
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: var(--standard-padding);
-  }
-  .row.content {height: auto;} 
+#input-box {
+  height: 20vw;
 }
