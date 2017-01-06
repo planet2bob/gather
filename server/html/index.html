@@ -34,16 +34,21 @@
     <div class="col-sm-4 text-right">
 
       <div class="dropdown">
+
         <button class="btn btn-lg btn-default dropdown-toggle" type="button" id="settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <big><span class="fa fa-cog"></span></big>
         </button>
+
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="settings">
           <li><a href="#">Accounts</a></li>
           <li><a href="#"><span class="fa fa-plus pull-right" ></span></a></li>
           <li><a href="#">Other settings</a></li>
+
           <li role="separator" class="divider"></li>
+          
           <li><a class="pull-right" href="#">Log out</a></li>
         </ul>
+
       </div>
 
     </div>
@@ -55,16 +60,8 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h3>Contacts <a href="#"><span class="fa fa-plus pull-right"></span></h3></a>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Rachel Hong</a></li>
-        <li><a href="#section2">Joe Biden</a></li>
-        <li><a href="#section3">Andrew Wang</a></li>
-        <li><a href="#section3">Max Sun</a></li>
-        <li><a href="#section3">Kevin Chen</a></li>
-        <li><a href="#section3">Veronica Tang</a></li>
-        <li><a href="#section3">Ale Aguirre</a></li>
-      </ul><br>
+      <h3>Contacts <a href="#" id="add-contact"><span class="fa fa-plus pull-right"></span></h3></a>
+      
       <div class="input-group" id="search-box">
         <input type="text" class="form-control" placeholder="Search Contacts...">
         <span class="input-group-btn">
@@ -73,6 +70,19 @@
           </button>
         </span>
       </div>
+
+      <br>
+
+      <ul class="nav nav-pills nav-stacked" id="contact-list">
+        <li class="active"><a href="#section1">Rachel Hong</a></li>
+        <li><a href="#section2">Joe Biden</a></li>
+        <li><a href="#section3">Andrew Wang</a></li>
+        <li><a href="#section3">Max Sun</a></li>
+        <li><a href="#section3">Kevin Chen</a></li>
+        <li><a href="#section3">Veronica Tang</a></li>
+        <li><a href="#section3">Ale Aguirre</a></li>
+      </ul>
+
     </div>
 
     <div class="col-sm-9 container-fluid">
@@ -105,10 +115,10 @@
 
       <hr>
 
-      <div class="container-fluid" id="input-box">
+      <div class="container-fluid">
         <form role="form">
           <div class="form-group">
-            <textarea class="form-control" rows="3" required></textarea>
+            <textarea class="form-control" rows="4" required></textarea>
           </div>
         </form>
       </div>
