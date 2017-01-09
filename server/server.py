@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+
 app = Flask(__name__, template_folder='./html')
 @app.route("/")
 def hello():
@@ -10,9 +11,9 @@ def login():
 
 @app.route("/tryLogin", methods=['POST'])
 def checkLogin():
-  email = request.form.getlist('email')[0]
-  pwd = request.form.getlist('pwd')[0]
-  return email + ', ' + pwd
+    email = request.json['email']
+    pwd = request.json['pwd']
+    return pwd
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
