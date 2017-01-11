@@ -71,6 +71,14 @@ html, body {
   border-radius: 15px;
 }
 
+#platform-dropdown {
+  height: 20vh;
+}
+
+#emoji-dropdown {
+  height: 20vh;
+}
+
 #messages-box {
   padding-top: var(--standard-padding);
   height: 70vh;

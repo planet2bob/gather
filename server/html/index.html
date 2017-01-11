@@ -41,11 +41,11 @@
 
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="settings">
           <li><a href="#">Accounts</a></li>
-          <li><a href="#"><span class="fa fa-plus pull-right" ></span></a></li>
+          <li><a href="#" class="pull-right">Add an account </small><span class="fa fa-plus" ></span></a></li>
           <li><a href="#">Other settings</a></li>
 
           <li role="separator" class="divider"></li>
-          
+
           <li><a class="pull-right" href="#">Log out</a></li>
         </ul>
 
@@ -116,11 +116,51 @@
       <hr>
 
       <div class="container-fluid">
-        <form role="form">
-          <div class="form-group">
-            <textarea class="form-control" rows="4" required></textarea>
+
+        <div class="col-sm-1" style="width: 7%">
+
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="platform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-wechat"></span>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="platform" id="platform-dropdown">
+
+              <li><a href="#"><span class="fa fa-wechat"></span></a></li>
+              <li><a href="#"><span class="fa fa-skype"></span></a></li>
+              <li><a href="#"><span class="fa fa-slack"></span></a></li>
+              <li><a href="#"><span class="fa fa-whatsapp"></span></a></li>
+
+            </ul>
           </div>
-        </form>
+
+          <br>
+
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="emoji" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-smile-o"></span>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="emoji" id="emoji-dropdown">
+
+              <li><a href="#"><span class="fa fa-smile-o"></span></a></li>
+              <li><a href="#"><span class="fa fa-meh-o"></span></a></li>
+              <li><a href="#"><span class="fa fa-frown-o"></span></a></li>
+              <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
+
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-sm-11" style="width: 93%">  
+          <form role="form">
+            <div class="form-group">
+                <textarea class="form-control" rows="4" required></textarea>
+            </div>
+          </form>
+        </div>
+
       </div>
       
     </div>
