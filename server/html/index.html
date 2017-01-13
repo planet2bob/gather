@@ -13,16 +13,10 @@
 
   <script src="{{ url_for('static', filename='./js/bootstrap.min.js') }}"></script>
 
-  <script type="text/javascript">
-    function startOnBottom(){
-      $('#messages-box').scrollTop($('#messages-box')[0].scrollHeight);
-    }
-  </script>
-
   <style>
   </style>
 </head>
-<body onload = startOnBottom()>
+<body>
 
 <div class="container-fluid" id="title">
 
@@ -172,4 +166,55 @@
 </footer> -->
 
 </body>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('connect', function() {
+        console.log('connected!');
+        socket.emit('connected', {
+            username: 'maxsun',
+            password: 'abcd'
+        });
+    });
+
+    socket.on('status', function (data) {
+        console.log(data);
+    });
+
+    socket.on('message', function (data) {
+        console.log(data);
+        var row = document.createElement('div');
+        row.class = "row";
+        var message = document.createElement('div');
+        message.id = "sent-message";
+        message.className = "alert alert-success col-sm-9 pull-right";
+        var text = document.createElement('p');
+        text.innerText = data.message;
+        message.appendChild(text);
+        var h6 = document.createElement('h6');
+        h6.className = "pull-right text-muted";
+        h6.id = "signature";
+        h6.innerText = data.sender + ' ';
+        var logoSpan = document.createElement('span');
+        logoSpan.className = "fa fa-" + data.source;
+        h6.appendChild(logoSpan);
+        message.appendChild(h6);
+        row.appendChild(message);
+        $('#messages-box').append(row);
+        $('#messages-box').scrollTop($('#messages-box')[0].scrollHeight);
+    });
+
+    function requestMessages() {
+        socket.emit('requestMessages', {
+            username: 'maxsun',
+            password: 'abcd'
+        });
+    }
+
+    window.setInterval(function(){
+        requestMessages();
+    }, 5000);
+</script>
+
 </html>
