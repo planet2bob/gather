@@ -68,7 +68,7 @@ html, body {
 }
 
 .alert {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 #platform-dropdown {
@@ -85,17 +85,24 @@ html, body {
   overflow-y:scroll;
 }
 
-#received-message {
+.received-message {
   background-color: #C5E7EA;
   color: #50858B;
+  border-color: #9BE2E8;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, .15);
+  -moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, .15);
+  box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, .15);
 }
 
-#sent-message {
+.sent-message {
   background-color: #D3EADE;
   color: #326B5D;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, .15);
+  -moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, .15);
+  box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, .15);
 }
 
-#signature {
+.signature {
   margin: -9px;
 }
 

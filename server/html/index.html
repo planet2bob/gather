@@ -68,42 +68,16 @@
       <br>
 
       <ul class="nav nav-pills nav-stacked" id="contact-list">
-        <li class="active"><a href="#section1">Rachel Hong</a></li>
-        <li><a href="#section2">Joe Biden</a></li>
-        <li><a href="#section3">Andrew Wang</a></li>
-        <li><a href="#section3">Max Sun</a></li>
-        <li><a href="#section3">Kevin Chen</a></li>
-        <li><a href="#section3">Veronica Tang</a></li>
-        <li><a href="#section3">Ale Aguirre</a></li>
+        <li class="active contact"><a>Rachel Hong</a></li>
+        <li class="contact"><a>Joe "Daddy" Biden</a></li>
+        <li class="contact"><a>Andrew Wang</a></li>
+        <li class="contact"><a>maxsun</a></li>
       </ul>
 
     </div>
 
     <div class="col-sm-9 container-fluid">
       <div class="container-fluid" id="messages-box">
-        <div class="row">
-          <div class="alert alert-info col-sm-9" id="received-message">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-            <h6 class="pull-right text-muted" id="signature">RH <span class="fa fa-skype"></span></h6>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="alert alert-info col-sm-9" id="received-message">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-            <h6 class="pull-right text-muted" id="signature">RH <span class="fa fa-wechat"></span></h6>
-          </div>
-        </div> 
-
-        <div class="row">
-          <div class="alert alert-success col-sm-9 pull-right" id="sent-message">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-            <h6 class="pull-right text-muted" id="signature">CW <span class="fa fa-wechat"></span></h6>
-          </div>
-        </div>
 
       </div>
 
@@ -115,15 +89,15 @@
 
           <div class="dropup">
             <button class="btn btn-default dropdown-toggle" type="button" id="platform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <big><span class="fa fa-wechat"></span></big>
+              <big><span id="currentplatform" class="fa fa-wechat"></span></big>
             </button>
 
             <ul class="dropdown-menu" aria-labelledby="platform" id="platform-dropdown">
 
-              <li><a href="#"><big><span class="fa fa-wechat"></span></big></a></li>
-              <li><a href="#"><big><span class="fa fa-skype"></span></big></a></li>
-              <li><a href="#"><big><span class="fa fa-slack"></span></big></a></li>
-              <li><a href="#"><big><span class="fa fa-whatsapp"></span></big></a></li>
+              <li class="sendmethod" id="wechat"><a href="#"><big><span class="fa fa-wechat"></span></big></a></li>
+              <li class="sendmethod" id="skype"><a href="#"><big><span class="fa fa-skype"></span></big></a></li>
+              <li class="sendmethod" id="slack"><a href="#"><big><span class="fa fa-slack"></span></big></a></li>
+              <li class="sendmethod" id="whatsapp"><a href="#"><big><span class="fa fa-whatsapp"></span></big></a></li>
 
             </ul>
           </div>
@@ -168,53 +142,6 @@
 </body>
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-<script type="text/javascript" charset="utf-8">
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
-    socket.on('connect', function() {
-        console.log('connected!');
-        socket.emit('connected', {
-            username: 'maxsun',
-            password: 'abcd'
-        });
-    });
-
-    socket.on('status', function (data) {
-        console.log(data);
-    });
-
-    socket.on('message', function (data) {
-        console.log(data);
-        var row = document.createElement('div');
-        row.class = "row";
-        var message = document.createElement('div');
-        message.id = "sent-message";
-        message.className = "alert alert-success col-sm-9 pull-right";
-        var text = document.createElement('p');
-        text.innerText = data.message;
-        message.appendChild(text);
-        var h6 = document.createElement('h6');
-        h6.className = "pull-right text-muted";
-        h6.id = "signature";
-        h6.innerText = data.sender + ' ';
-        var logoSpan = document.createElement('span');
-        logoSpan.className = "fa fa-" + data.source;
-        h6.appendChild(logoSpan);
-        message.appendChild(h6);
-        row.appendChild(message);
-        $('#messages-box').append(row);
-        $('#messages-box').scrollTop($('#messages-box')[0].scrollHeight);
-    });
-
-    function requestMessages() {
-        socket.emit('requestMessages', {
-            username: 'maxsun',
-            password: 'abcd'
-        });
-    }
-
-    window.setInterval(function(){
-        requestMessages();
-    }, 5000);
-</script>
+<script type="text/javascript" src="{{ url_for('static', filename='./js/index.js') }}"></script>
 
 </html>
