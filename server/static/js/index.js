@@ -92,8 +92,6 @@ $("#own-message").keyup(function(event){
             source: method,
             recipient: $('.active').text()
         };
-        console.log(messageData);
-        messages.push(messageData);
         $('#own-message').val('');
         renderMessages();
         $.ajax({
@@ -101,7 +99,7 @@ $("#own-message").keyup(function(event){
             url: '/send',
             data: messageData,
             success: function (d) {
-                console.log(d);
+                messages.push(messageData);
             },
             dataType: "JSON"
         });
