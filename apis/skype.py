@@ -26,7 +26,7 @@ class SkypeProcess(multiprocessing.Process):
         
             return None
 
-def initialize_object(username,password):
+def initialize_object():
     
     retry = True
     while retry == True:
@@ -59,6 +59,22 @@ def get_skype_contacts(skype_object):
         list_of_contacts.append(str(key.id))
 
     return list_of_contacts
+
+def get_login_info():
+    
+        text = open("login.txt","r")
+        string = text.read()
+        text.close()
+        
+        beginning = string.find("Skype") + 6
+        ending = string.find("|||",beginning)
+        username = string[beginning:ending]
+        
+        beginning = ending + 3
+        ending = string.find("|||",beginning)
+        password = string[beginning:ending]
+        
+        return username,password
 
 def send_message(skype_object, recipient, message):
 
