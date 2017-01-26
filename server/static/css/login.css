@@ -31,6 +31,7 @@ body {
     display: table;
     height: 100px;
     margin: 0 auto;
+    margin-top: -60px;
     width: 100px;
 /*    margin-top: -61px;*/
 }
