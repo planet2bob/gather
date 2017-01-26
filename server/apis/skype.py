@@ -55,10 +55,14 @@ class Skype_Class():
         list_of_messages = []
         
         for key in messages:
-            
-            if key.userId == target:
+
+            sender = key.userId
+            message = key.content
+
+            if sender.find("live:") != -1:
+                sender = sender[5:]
                 
-                list_of_messages.append(str(key.content))
+            list_of_messages.append({"sender":sender,"message":message})
 
         return list_of_messages
 
@@ -107,3 +111,9 @@ def login(token,username,password):
     module_object.skype_class_object = skype_object
 
     return module_object
+
+def test():
+    module_object = login(None,"gatherbois@gmail.com","Andrew_PAD_#_1")
+    print(module_object.get("ptwob0"))
+
+test()
