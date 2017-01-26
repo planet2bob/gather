@@ -13,6 +13,16 @@ socket.on('connect', function() {
     });
 });
 
+
+$('.test-contact').hover(function() {
+        $(this).find(".edit-button").show();
+    }, 
+    function() {
+        $(this).find(".edit-button").hide();
+    }
+);
+
+
 $('.contact').click(function() {
     console.log('changing contacts...');
     var contactButtons = document.getElementsByClassName('contact');

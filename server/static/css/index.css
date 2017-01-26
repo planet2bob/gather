@@ -54,18 +54,21 @@ html, body {
   position: relative;
 }
 
-#add-contact {
-  color: gray;
-}
-
 #contact-list {
   height: 70vh;
+}
+
+.contact {
+  height: 10%;
 }
 
 #search-box{
   vertical-align: bottom;
   float: none;
 }
+
+
+
 
 .alert {
   border-radius: 10px;

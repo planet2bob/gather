@@ -67,11 +67,30 @@
 
       <br>
 
-      <ul class="nav nav-pills nav-stacked" id="contact-list">
-        <li class="active contact"><a>Rachel Hong</a></li>
-        <li class="contact"><a>Joe "Daddy" Biden</a></li>
-        <li class="contact"><a>Andrew Wang</a></li>
-        <li class="contact"><a>maxsun</a></li>
+      <ul class="nav nav-pills nav-stacked list-group" id="contact-list">
+      
+        <li class="list-group-item active test-contact contact">
+          <div class="pull-left"><a>Rachel Hong</a></div>
+          <div class="dropdown pull-right">
+            <button class="btn btn-sm dropdown-toggle edit-button pull-right" id="edit-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-pencil-square-o"></span>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="edit-button">
+              <li><a href="#">Accounts</a></li>
+              <li><a href="#" class="pull-right">Add an account </small><span class="fa fa-plus" ></span></a></li>
+              <li><a href="#">Other settings</a></li>
+
+              <li role="separator" class="divider"></li>
+
+              <li><a class="pull-right" href="#">Log out</a></li>
+            </ul>
+          </div>
+
+        </li>
+        <li class="list-group-item contact"><a>Joe "Daddy" Biden</a></li>
+        <li class="list-group-item contact"><a>Andrew Wang</a></li>
+        <li class="list-group-item contact"><a>maxsun</a></li>
       </ul>
 
     </div>
