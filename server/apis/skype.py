@@ -42,11 +42,32 @@ class Skype_Class():
     skype_class_object = None
 
     def send(self, recipient, message):
+        """
+        send a skype message
+
+        parameters:
+        recipient, the skype username of the target
+        message, the string of text to be messaged
+
+        returns:
+        no returns
+        """
         
         channel = self.skype_class_object.contacts[recipient].chat
         channel.sendMsg(message)
 
     def get(self, target):
+        """
+        get past skype messages from a conversation
+
+        parameters:
+        target, the target contact that the conversation will be read from
+
+        returns:
+        a list of messages containing dictionaries
+        the dictionary has the keys "sender" and "message" which contain the sender and message
+        the list is in chronological order with index 0 being the latest
+        """
     
         skype_chat = self.skype_class_object.contacts[target].chat
         target_id = skype_chat.id
@@ -67,6 +88,15 @@ class Skype_Class():
         return list_of_messages
 
     def contacts(self):
+        """
+        finds the contacts associated with the account
+
+        parameters:
+        no parameters
+
+        returns:
+        a list of skype uernames that are on the user's account contacts
+        """
         
         contacts = self.skype_class_object.contacts
         list_of_contacts = []
@@ -78,12 +108,14 @@ class Skype_Class():
         return list_of_contacts
 
 def set_token():
+    """identifies a text file to be the token file"""
 
-        Skype_Connection_object = SkypeConnection()
-        Skype_Connection_object.setTokenFile("token.txt")
-        #This one's for you Kevin
+    Skype_Connection_object = SkypeConnection()
+    Skype_Connection_object.setTokenFile("token.txt")
+    #This one's for you Kevin
 
 def initialize_object(token,username,password):
+    """creates the skype object"""
     
     retry = True
     while retry == True:
@@ -105,15 +137,10 @@ def initialize_object(token,username,password):
             return skype_object
 
 def login(token,username,password):
+    """creates the module object"""
 
     skype_object = initialize_object(token,username,password)
     module_object = Skype_Class()
     module_object.skype_class_object = skype_object
 
     return module_object
-
-def test():
-    module_object = login(None,"gatherbois@gmail.com","Andrew_PAD_#_1")
-    print(module_object.get("ptwob0"))
-
-test()
