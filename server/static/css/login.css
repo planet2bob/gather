@@ -15,6 +15,22 @@ body {
   z-index: 15;
 }
 
+#signins{
+    float: right;
+}
+
+/*
+table{
+    position: relative;
+    margin: 10px auto;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+*/
+
 .box {
     background-color: white;
     border-radius: 3px;
