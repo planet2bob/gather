@@ -38,6 +38,7 @@ socket.on('status', function (data) {
 });
 
 socket.on('message', function (data) {
+    console.log(data);
     messages.push(data);
     renderMessages();
 });

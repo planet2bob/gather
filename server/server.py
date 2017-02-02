@@ -116,13 +116,13 @@ def get_messages(data):
     for contact in contacts:
         contact_messages = skype.get(contact)
         for cm in contact_messages:
-            print cm
-            messages.append({
-                'message': cm,
-                'sender': contact,
-                'recipient': user.username,
-                'source': 'skype'
-            })
+            if cm['sender'] != user.username:
+                messages.append({
+                    'message': cm['message'],
+                    'sender': cm['sender'],
+                    'recipient': user.username,
+                    'source': 'skype'
+                })
     for message in messages:
         for sid in user.sids:
             user.emit('message', message)
