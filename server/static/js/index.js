@@ -94,20 +94,25 @@ $("#own-message").keyup(function(event){
         };
         $('#own-message').val('');
         renderMessages();
-        $.ajax({
-            type: "POST",
-            url: '/send',
-            data: messageData,
-            success: function (d) {
-                messages.push(messageData);
-            },
-            dataType: "JSON"
+        // $.ajax({
+        //     type: "POST",
+        //     url: '/send',
+        //     data: messageData,
+        //     success: function (d) {
+        //         messages.push(messageData);
+        //     },
+        //     dataType: "JSON"
+        // });
+        socket.emit('send', {
+            'message': val,
+            'method': method,
+            'recipient': $('.active').text()
         });
     }
 });
 
 function requestMessages() {
-    socket.emit('requestMessages', {
+    socket.emit('get', {
         username: 'maxsun',
         password: 'abcd'
     });
