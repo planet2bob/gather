@@ -15,6 +15,22 @@ body {
   z-index: 15;
 }
 
+#signins{
+    float: right;
+}
+
+/*
+table{
+    position: relative;
+    margin: 10px auto;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+*/
+
 .box {
     background-color: white;
     border-radius: 3px;
@@ -31,9 +47,19 @@ body {
     display: table;
     height: 100px;
     margin: 0 auto;
+    margin-top: -60px;
     width: 100px;
-    margin-top: -61px;
+/*    margin-top: -61px;*/
 }
+img{
+    height: 98%;
+    width: 98%;
+    padding-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .box-icon span {
     color: #fff;
     display: table-cell;

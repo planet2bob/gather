@@ -24,9 +24,19 @@ body {
     display: table;
     height: 100px;
     margin: 0 auto;
+    margin-top: -60px;
     width: 100px;
-    margin-top: -61px;
+/*    margin-top: -61px;*/
 }
+img{
+    height: 98%;
+    width: 98%;
+    padding-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .box-icon span {
     color: #fff;
     display: table-cell;

@@ -33,7 +33,7 @@
           <big><span class="fa fa-cog"></span></big>
         </button>
 
-        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="settings">
+        <ul class="dropdown-menu dropdown-menu-right settings-dropdown-menu" aria-labelledby="settings">
           <li><a href="#">Accounts</a></li>
           <li><a href="#" class="pull-right">Add an account </small><span class="fa fa-plus" ></span></a></li>
           <li><a href="#">Other settings</a></li>
@@ -67,11 +67,36 @@
 
       <br>
 
+<<<<<<< HEAD
       <ul class="nav nav-pills nav-stacked" id="contact-list">
         <li class="active contact"><a>hong.rach2009</a></li>
         <li class="contact"><a>Joe "Daddy" Biden</a></li>
         <li class="contact"><a>Andrew Wang</a></li>
         <li class="contact"><a>ptwob0</a></li>
+=======
+      <ul class="nav nav-pills nav-stacked list-group" id="contact-list">
+
+        <li class="list-group-item justify-content-between active test-contact contact text-primary">
+          Rachel Hong
+          
+          <span class="btn-group pull-right edit-button">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="fa fa-pencil-square-o"></span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+                <li data-toggle="modal" data-target="#edit-name-modal"><a href="#">Edit name</a></li>
+                <li><a href="#">Delete contact</a>
+                </li>
+            </ul>
+          </span>
+
+        </li>
+
+        <li class="list-group-item contact"><a>Joe "Daddy" Biden</a></li>
+        <li class="list-group-item contact"><a>Andrew Wang</a></li>
+        <li class="list-group-item contact"><a>maxsun</a></li>
+>>>>>>> 2f66175ba7d32dac587b23e972b01f431b1842ed
       </ul>
 
     </div>
@@ -135,6 +160,27 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="edit-name-modal" tabindex="-1" role="dialog" aria-labelledby="edit-name-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Edit name: </label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-white-text" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-white-text">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- <footer class="container-fluid">
   <p>Footer Text</p>
 </footer> -->
@@ -145,3 +191,5 @@
 <script type="text/javascript" src="{{ url_for('static', filename='./js/index.js') }}"></script>
 
 </html>
+
+
