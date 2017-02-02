@@ -36,7 +36,7 @@ html, body {
   border: 0px;
 }
 
-.dropdown-menu {
+.settings-dropdown-menu {
   width: 20vw;
   height: 50vh;
 }
@@ -59,7 +59,21 @@ html, body {
 }
 
 .contact {
-  height: 10%;
+  height: 11%;
+  vertical-align: middle;
+}
+
+.edit-button {
+  display: none;
+}
+
+.btn-white-text {
+  color: #FFFFFF;
+}
+
+.modal{
+  vertical-align: middle;
+  padding: 10vh;
 }
 
 #search-box{
