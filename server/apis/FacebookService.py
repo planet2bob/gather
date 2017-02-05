@@ -34,7 +34,7 @@ class FBService(Service):
         message_list = []
         for fbmsg in content:
             sender_recipient = self.get_Sender_Recipient(fbmsg, self.username, recipient)
-            m = GatherMessage.GatherMessage(fbmsg.body, sender_recipient[0], sender_recipient[1])
+            m = GatherMessage.GatherMessage(str(fbmsg.body), sender_recipient[0], sender_recipient[1])
             message_list.append(m)
         return message_list
 
