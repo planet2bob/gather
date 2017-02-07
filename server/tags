@@ -199,7 +199,7 @@ EllipsisType	env/lib/python2.7/types.py	/^EllipsisType = type(Ellipsis)$/;"	kind
 EncodedFile	env/lib/python2.7/codecs.py	/^def EncodedFile(file, data_encoding, file_encoding=None, errors='strict'):$/;"	kind:function	line:893
 Error	env/lib/python2.7/locale.py	/^    Error = ValueError$/;"	kind:variable	line:57
 FAILURE	env/lib/python2.7/sre_constants.py	/^FAILURE = "failure"$/;"	kind:variable	line:32
-FBService	apis/FacebookService.py	/^class FBService(Service):$/;"	kind:class	line:4
+FBService	apis/FacebookService.py	/^class FBService(Service):$/;"	kind:class	line:5
 FLAGS	env/lib/python2.7/sre_parse.py	/^FLAGS = {$/;"	kind:variable	line:53
 FacebookService.py	apis/FacebookService.py	1;"	kind:file	line:1
 FileType	env/lib/python2.7/types.py	/^FileType = file$/;"	kind:variable	line:63
@@ -210,9 +210,8 @@ FunctionType	env/lib/python2.7/types.py	/^FunctionType = type(_f)$/;"	kind:varia
 GROUPREF	env/lib/python2.7/sre_constants.py	/^GROUPREF = "groupref"$/;"	kind:variable	line:45
 GROUPREF_EXISTS	env/lib/python2.7/sre_constants.py	/^GROUPREF_EXISTS = "groupref_exists"$/;"	kind:variable	line:47
 GROUPREF_IGNORE	env/lib/python2.7/sre_constants.py	/^GROUPREF_IGNORE = "groupref_ignore"$/;"	kind:variable	line:46
-GatherMessage	apis/FacebookService.py	/^import GatherMessage$/;"	kind:namespace	line:2
+GatherMessage	apis/FacebookService.py	/^import GatherMessage$/;"	kind:namespace	line:3
 GatherMessage	apis/GatherMessage.py	/^class GatherMessage:$/;"	kind:class	line:1
-GatherMessage	apis/Message.py	/^class GatherMessage:$/;"	kind:class	line:1
 GatherMessage.py	apis/GatherMessage.py	1;"	kind:file	line:1
 GeneratorType	env/lib/python2.7/types.py	/^GeneratorType = type(_g())$/;"	kind:variable	line:49
 GetSetDescriptorType	env/lib/python2.7/types.py	/^GetSetDescriptorType = type(FunctionType.func_code)$/;"	kind:variable	line:81
@@ -493,7 +492,6 @@ MIN_UNTIL	env/lib/python2.7/sre_constants.py	/^MIN_UNTIL = "min_until"$/;"	kind:
 Mapping	env/lib/python2.7/_abcoll.py	/^class Mapping(Sized, Iterable, Container):$/;"	kind:class	line:365
 MappingView	env/lib/python2.7/_abcoll.py	/^class MappingView(Sized):$/;"	kind:class	line:431
 MemberDescriptorType	env/lib/python2.7/types.py	/^MemberDescriptorType = type(FunctionType.func_globals)$/;"	kind:variable	line:82
-Message.py	apis/Message.py	1;"	kind:file	line:1
 MethodType	env/lib/python2.7/types.py	/^MethodType = type(_x._m)$/;"	kind:variable	line:57
 ModuleType	env/lib/python2.7/site.py	/^    ModuleType = type(os)$/;"	kind:variable	line:90
 ModuleType	env/lib/python2.7/types.py	/^ModuleType = type(sys)$/;"	kind:variable	line:62
@@ -589,6 +587,7 @@ S_IXOTH	env/lib/python2.7/stat.py	/^S_IXOTH = 00001$/;"	kind:variable	line:81
 S_IXUSR	env/lib/python2.7/stat.py	/^S_IXUSR = 00100$/;"	kind:variable	line:73
 Scanner	env/lib/python2.7/re.py	/^class Scanner:$/;"	kind:class	line:306
 Sequence	env/lib/python2.7/_abcoll.py	/^class Sequence(Sized, Iterable, Container):$/;"	kind:class	line:587
+Service	apis/FacebookService.py	/^from Service import Service$/;"	kind:namespace	line:2
 Service	apis/Service.py	/^class Service:$/;"	kind:class	line:1
 Service.py	apis/Service.py	1;"	kind:file	line:1
 Set	env/lib/python2.7/_abcoll.py	/^class Set(Sized, Iterable, Container):$/;"	kind:class	line:139
@@ -981,6 +980,9 @@ __hash__	env/lib/python2.7/_weakrefset.py	/^    __hash__ = None$/;"	kind:variabl
 __iadd__	env/lib/python2.7/_abcoll.py	/^    def __iadd__(self, values):$/;"	kind:member	line:688
 __iand__	env/lib/python2.7/_abcoll.py	/^    def __iand__(self, it):$/;"	kind:member	line:333
 __iand__	env/lib/python2.7/_weakrefset.py	/^    def __iand__(self, other):$/;"	kind:member	line:151
+__init__	apis/FacebookService.py	/^    def __init__(self, username, password):$/;"	kind:member	line:7
+__init__	apis/GatherMessage.py	/^    def __init__(self, body, sender, recipient):$/;"	kind:member	line:3
+__init__	apis/Service.py	/^    def __init__(self, username, password):$/;"	kind:member	line:5
 __init__	apis/skype.py	/^    def __init__(self, token, username, password):$/;"	kind:member	line:7
 __init__	env/lib/python2.7/UserDict.py	/^    def __init__(self, dict=None, **kwargs):$/;"	kind:member	line:4
 __init__	env/lib/python2.7/_abcoll.py	/^    def __init__(self, mapping):$/;"	kind:member	line:433
@@ -1198,10 +1200,6 @@ _hasattr	env/lib/python2.7/_abcoll.py	/^def _hasattr(C, attr):$/;"	kind:function
 _hash	env/lib/python2.7/_abcoll.py	/^    def _hash(self):$/;"	kind:member	line:247
 _ignorecase_fixes	env/lib/python2.7/sre_compile.py	/^_ignorecase_fixes = {i: tuple(j for j in t if i != j)$/;"	kind:variable	line:61
 _import_tail	env/lib/python2.7/encodings/__init__.py	/^_import_tail = ['*']$/;"	kind:variable	line:37
-_init_	apis/FacebookService.py	/^    def _init_(self, username, password):$/;"	kind:member	line:6
-_init_	apis/GatherMessage.py	/^    def _init_(self, body, sender, recipient):$/;"	kind:member	line:3
-_init_	apis/Message.py	/^    def _init_(self, body, sender, recipient):$/;"	kind:member	line:3
-_init_	apis/Service.py	/^    def _init_(self, username, password):$/;"	kind:member	line:5
 _init_categories	env/lib/python2.7/locale.py	/^    def _init_categories(categories=categories):$/;"	kind:function	line:1995
 _init_pathinfo	env/lib/python2.7/site.py	/^def _init_pathinfo():$/;"	kind:function	line:143
 _inverted_registry	env/lib/python2.7/copy_reg.py	/^_inverted_registry = {}                 # code -> key$/;"	kind:variable	line:152
@@ -1594,7 +1592,7 @@ compile	env/lib/python2.7/re.py	/^def compile(pattern, flags=0):$/;"	kind:functi
 compile	env/lib/python2.7/sre_compile.py	/^def compile(p, flags=0):$/;"	kind:function	line:567
 connect	apis/skype.py	/^    def connect(self,token,username,password):$/;"	kind:member	line:12
 constructor	env/lib/python2.7/copy_reg.py	/^def constructor(object):$/;"	kind:function	line:27
-contacts	apis/skype.py	/^    def contacts(self):$/;"	kind:member	line:65
+contacts	apis/skype.py	/^    def contacts(self):$/;"	kind:member	line:90
 copy	env/lib/python2.7/UserDict.py	/^        import copy$/;"	kind:namespace	line:30
 copy	env/lib/python2.7/UserDict.py	/^    def copy(self):$/;"	kind:member	line:27
 copy	env/lib/python2.7/_weakrefset.py	/^    def copy(self):$/;"	kind:member	line:93
@@ -1967,8 +1965,9 @@ dirname	env/lib/python2.7/ntpath.py	/^def dirname(p):$/;"	kind:function	line:213
 dirname	env/lib/python2.7/posixpath.py	/^def dirname(p):$/;"	kind:function	line:120
 discard	env/lib/python2.7/_abcoll.py	/^    def discard(self, value):$/;"	kind:member	line:300
 discard	env/lib/python2.7/_weakrefset.py	/^    def discard(self, item):$/;"	kind:member	line:113
-disconnect	server.py	/^def disconnect():$/;"	kind:function	line:139
+disconnect	server.py	/^def disconnect():$/;"	kind:function	line:145
 dispatch_table	env/lib/python2.7/copy_reg.py	/^dispatch_table = {}$/;"	kind:variable	line:12
+display	apis/GatherMessage.py	/^    def display(self):$/;"	kind:member	line:8
 dist	env/lib/python2.7/distutils/__init__.py	/^from distutils import dist, sysconfig$/;"	kind:namespace	line:25
 distutils_path	env/lib/python2.7/distutils/__init__.py	/^distutils_path = os.path.join(os.path.dirname(opcode.__file__), 'distutils')$/;"	kind:variable	line:11
 dots	env/lib/python2.7/encodings/idna.py	/^dots = re.compile(u"[\\u002E\\u3002\\uFF0E\\uFF61]")$/;"	kind:variable	line:7
@@ -2341,22 +2340,22 @@ generate_integers	env/lib/python2.7/encodings/punycode.py	/^def generate_integer
 genericpath	env/lib/python2.7/ntpath.py	/^import genericpath$/;"	kind:namespace	line:11
 genericpath	env/lib/python2.7/posixpath.py	/^import genericpath$/;"	kind:namespace	line:16
 genericpath.py	env/lib/python2.7/genericpath.py	1;"	kind:file	line:1
-get	apis/skype.py	/^    def get(self, target):$/;"	kind:member	line:49
+get	apis/skype.py	/^    def get(self, target):$/;"	kind:member	line:59
 get	env/lib/python2.7/UserDict.py	/^    def get(self, key, default=None):$/;"	kind:member	line:166
 get	env/lib/python2.7/UserDict.py	/^    def get(self, key, failobj=None):$/;"	kind:member	line:58
 get	env/lib/python2.7/_abcoll.py	/^    def get(self, key, default=None):$/;"	kind:member	line:379
 get	env/lib/python2.7/os.py	/^            def get(self, key, failobj=None):$/;"	kind:member	line:446
 get	env/lib/python2.7/sre_parse.py	/^    def get(self):$/;"	kind:member	line:212
-get_Sender_Recipient	apis/FacebookService.py	/^    def get_Sender_Recipient(fbmsg, username, their_name):$/;"	kind:member	line:34
+get_Sender_Recipient	apis/FacebookService.py	/^    def get_Sender_Recipient(self, fbmsg, username, their_name):$/;"	kind:member	line:41
 get_channel_id	apis/slack.py	/^def get_channel_id(slack_object,name):$/;"	kind:function	line:41
 get_channel_names	apis/slack.py	/^def get_channel_names(slack_object):$/;"	kind:function	line:26
-get_contacts	apis/FacebookService.py	/^    def get_contacts(username):$/;"	kind:member	line:18
-get_contacts	apis/Service.py	/^    def get_contacts(username):$/;"	kind:member	line:13
-get_conversation	apis/FacebookService.py	/^    def get_conversation(username, recipient):$/;"	kind:member	line:23
-get_conversation	apis/Service.py	/^    def get_conversation(username, recipient):$/;"	kind:member	line:18
-get_friend	apis/FacebookService.py	/^    def get_friend(their_name):$/;"	kind:member	line:41
+get_contacts	apis/FacebookService.py	/^    def get_contacts(self):$/;"	kind:member	line:21
+get_contacts	apis/Service.py	/^    def get_contacts():$/;"	kind:member	line:13
+get_conversation	apis/FacebookService.py	/^    def get_conversation(self, recipient):$/;"	kind:member	line:26
+get_conversation	apis/Service.py	/^    def get_conversation(recipient):$/;"	kind:member	line:18
+get_friend	apis/FacebookService.py	/^    def get_friend(self, their_name):$/;"	kind:member	line:48
 get_latest_message	apis/slack.py	/^def get_latest_message(slack_object,channel_id):$/;"	kind:function	line:79
-get_messages	server.py	/^def get_messages(data):$/;"	kind:function	line:103
+get_messages	server.py	/^def get_messages(data):$/;"	kind:function	line:109
 get_platform	env/lib/python2.7/site.py	/^    from distutils.util import get_platform$/;"	kind:namespace	line:136
 get_token	apis/slack.py	/^def get_token():$/;"	kind:function	line:3
 get_user_from_sid	server.py	/^def get_user_from_sid(sid):$/;"	kind:function	line:88
@@ -2509,7 +2508,7 @@ getstate	env/lib/python2.7/encodings/utf_8_sig.py	/^    def getstate(self):$/;"	
 getvar	env/bin/python-config	/^getvar = sysconfig.get_config_var$/;"	kind:variable	line:31
 getwidth	env/lib/python2.7/sre_parse.py	/^    def getwidth(self):$/;"	kind:member	line:151
 getwriter	env/lib/python2.7/codecs.py	/^def getwriter(encoding):$/;"	kind:function	line:989
-handle_message	server.py	/^def handle_message(data):$/;"	kind:function	line:125
+handle_message	server.py	/^def handle_message(data):$/;"	kind:function	line:131
 has_key	env/lib/python2.7/UserDict.py	/^    def has_key(self, key): return key in self.data$/;"	kind:member	line:45
 has_key	env/lib/python2.7/UserDict.py	/^    def has_key(self, key):$/;"	kind:member	line:99
 has_key	env/lib/python2.7/os.py	/^            def has_key(self, key):$/;"	kind:member	line:442
@@ -2524,7 +2523,7 @@ ignore_errors	env/lib/python2.7/codecs.py	/^    ignore_errors = None$/;"	kind:va
 ignore_errors	env/lib/python2.7/codecs.py	/^    ignore_errors = lookup_error("ignore")$/;"	kind:variable	line:1075
 imp	env/lib/python2.7/distutils/__init__.py	/^import imp$/;"	kind:namespace	line:4
 index	env/lib/python2.7/_abcoll.py	/^    def index(self, value):$/;"	kind:member	line:618
-initialize_object	apis/skype.py	/^def initialize_object(token,username,password):$/;"	kind:function	line:82
+initialize_object	apis/skype.py	/^def initialize_object(token,username,password):$/;"	kind:function	line:117
 initialize_object	apis/slack.py	/^def initialize_object(token):$/;"	kind:function	line:9
 insert	env/lib/python2.7/_abcoll.py	/^    def insert(self, index, value):$/;"	kind:member	line:655
 insert	env/lib/python2.7/sre_parse.py	/^    def insert(self, index, code):$/;"	kind:member	line:147
@@ -2617,7 +2616,7 @@ locale_alias	env/lib/python2.7/locale.py	/^locale_alias = {$/;"	kind:variable	li
 locale_encoding_alias	env/lib/python2.7/locale.py	/^locale_encoding_alias = {$/;"	kind:variable	line:639
 localeconv	env/lib/python2.7/locale.py	/^    def localeconv():$/;"	kind:function	line:59
 localeconv	env/lib/python2.7/locale.py	/^def localeconv():$/;"	kind:function	line:111
-login	apis/skype.py	/^def login(token,username,password):$/;"	kind:function	line:103
+login	apis/skype.py	/^def login(token,username,password):$/;"	kind:function	line:139
 login	server.py	/^def login():$/;"	kind:function	line:27
 mac_arabic.py	env/lib/python2.7/encodings/mac_arabic.py	1;"	kind:file	line:1
 mac_centeuro.py	env/lib/python2.7/encodings/mac_centeuro.py	1;"	kind:file	line:1
@@ -2868,8 +2867,8 @@ segregate	env/lib/python2.7/encodings/punycode.py	/^def segregate(str):$/;"	kind
 selective_find	env/lib/python2.7/encodings/punycode.py	/^def selective_find(str, char, index, pos):$/;"	kind:function	line:32
 selective_len	env/lib/python2.7/encodings/punycode.py	/^def selective_len(str, max):$/;"	kind:function	line:24
 send	apis/skype.py	/^    def send(self, recipient, message):$/;"	kind:member	line:44
-send_message	apis/FacebookService.py	/^    def send_message(recipient, message):$/;"	kind:member	line:11
-send_message	apis/Service.py	/^    def send_message(username, recipient, message):$/;"	kind:member	line:9
+send_message	apis/FacebookService.py	/^    def send_message(self, recipient, message):$/;"	kind:member	line:12
+send_message	apis/Service.py	/^    def send_message(self, recipient, message):$/;"	kind:member	line:9
 send_message	apis/slack.py	/^def send_message(slack_object,message,channel):$/;"	kind:function	line:15
 send_message	server.py	/^def send_message(data):$/;"	kind:function	line:94
 sep	env/lib/python2.7/ntpath.py	/^sep = '\\\\'$/;"	kind:variable	line:28
@@ -2879,7 +2878,7 @@ server.py	server.py	1;"	kind:file	line:1
 session	server.py	/^from flask import Flask, render_template, request, session, jsonify$/;"	kind:namespace	line:2
 set	env/lib/python2.7/site.py	/^    from sets import Set as set$/;"	kind:namespace	line:75
 setBEGINLIBPATH	env/lib/python2.7/site.py	/^def setBEGINLIBPATH():$/;"	kind:function	line:362
-set_token	apis/skype.py	/^def set_token():$/;"	kind:function	line:76
+set_token	apis/skype.py	/^def set_token():$/;"	kind:function	line:110
 setcopyright	env/lib/python2.7/site.py	/^def setcopyright():$/;"	kind:function	line:472
 setdefault	env/lib/python2.7/UserDict.py	/^    def setdefault(self, key, default=None):$/;"	kind:member	line:126
 setdefault	env/lib/python2.7/UserDict.py	/^    def setdefault(self, key, failobj=None):$/;"	kind:member	line:62

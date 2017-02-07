@@ -1,10 +1,7 @@
-class GatherMessage:
 
+class GatherMessage(object):
+    '''This is a class that all messages should be passed as'''
     def __init__(self, body, sender, recipient):
         self.body = body
         self.sender = sender
         self.recipient = recipient
-
-    def display(self):
-        print("\nBody: " + self.body + "\nSender: " + self.sender + "\nRecipient: " + self.recipient)
-
