@@ -7,8 +7,7 @@ class GatherMessage(object):
         self.recipient = recipient
 
     def __str__(self):
-        return self.sender, '->', self.body, '->', self.recipient
+        return str(self.sender) + '->' + str(self.body) + '->' + str(self.recipient)
 
     def __repr__(self):
         return self.__str__()
-        
