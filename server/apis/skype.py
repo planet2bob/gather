@@ -41,14 +41,18 @@ class SkypeService(GatherService):
         list_of_contacts = []
         
         for key in contacts:
-            
             list_of_contacts.append(str(key.id))
 
         return list_of_contacts
 
     def send_message(self, recipient, message):
-        channel = self.skype_object.contacts[recipient].chat
-        channel.sendMsg(message)
+        try:
+            channel = self.skype_object.contacts[recipient].chat
+            channel.sendMsg(message)
+            return True
+        
+        except:
+            return False
 
     def get_messages(self,target):
         chats_object = SkypeChats(self.skype_object)
@@ -59,19 +63,11 @@ class SkypeService(GatherService):
             content = message.content
             sender = message.userId
             recipient = message.chatId
+            time = message.time
             if "8:" + sender == recipient:
                 sender = self.username
-            print type(sender)
-            print type(recipient)
-            print type(content)
-            results.append(GatherMessage(str(content), str(sender), str(recipient)))
-        for r in results:
-            print r
+            results.append(GatherMessage(str(content), str(sender), str(recipient), str(time)))
         return results
 
 def login(username,password):
     return SkypeService(None, username, password)
-
-ss = login("gatherbois@gmail.com", "Andrew_PAD_#_1")
-print(ss.get_contacts())
-print ss.get_messages("live:maxlouiesun")
