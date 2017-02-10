@@ -2,6 +2,7 @@ from GatherMessage import GatherMessage
 from GatherService import GatherService
 from skpy import Skype, SkypeConnection, SkypeChats
 import time, multiprocessing, requests
+from datetime import datetime
 
 class SkypeProcess(multiprocessing.Process):
   
@@ -63,10 +64,10 @@ class SkypeService(GatherService):
             content = message.content
             sender = message.userId
             recipient = message.chatId
-            time = message.time
+            time = datetime.strptime(str(message.time),"%Y-%m-%d %H:%M:%S.%f")
             if "8:" + sender == recipient:
                 sender = self.username
-            results.append(GatherMessage(str(content), str(sender), str(recipient), str(time)))
+            results.append(GatherMessage(str(content), str(sender), str(recipient), time))
         return results
 
 def login(username,password):
