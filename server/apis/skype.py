@@ -55,19 +55,23 @@ class SkypeService(GatherService):
             return False
 
     def get_messages(self,target):
-        chats_object = SkypeChats(self.skype_object)
-        messages = chats_object.recent()
-        single_chat = messages["8:" + target]
-        results = []
-        for message in single_chat.getMsgs():
-            content = message.content
-            sender = message.userId
-            recipient = message.chatId
-            time = message.time
-            if "8:" + sender == recipient:
-                sender = self.username
-            results.append(GatherMessage(str(content), str(sender), str(recipient), str(time)))
-        return results
+        try:
+            chats_object = SkypeChats(self.skype_object)
+            messages = chats_object.recent()
+            single_chat = messages["8:" + target]
+            results = []
+            for message in single_chat.getMsgs():
+                content = message.content
+                sender = message.userId
+                recipient = message.chatId
+                time = message.time
+                if "8:" + sender != recipient:
+                    sender = self.username
+                results.append(GatherMessage(str(content), str(sender), str(recipient), str(time)))
+            return results
+        except:
+            print 'No Recent Messages'
+            return []
 
 def login(username,password):
     return SkypeService(None, username, password)

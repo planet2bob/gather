@@ -1,0 +1,56 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+FBService	FacebookService.py	/^class FBService(Service):$/;"	kind:class	line:5
+FacebookService.py	FacebookService.py	1;"	kind:file	line:1
+GatherMessage	FacebookService.py	/^import GatherMessage$/;"	kind:namespace	line:3
+GatherMessage	GatherMessage.py	/^class GatherMessage(object):$/;"	kind:class	line:2
+GatherMessage	skype.py	/^from GatherMessage import GatherMessage$/;"	kind:namespace	line:1
+GatherMessage.py	GatherMessage.py	1;"	kind:file	line:1
+GatherService	GatherService.py	/^class GatherService(object):$/;"	kind:class	line:2
+GatherService	skype.py	/^from GatherService import GatherService$/;"	kind:namespace	line:2
+GatherService.py	GatherService.py	1;"	kind:file	line:1
+Service	FacebookService.py	/^from Service import Service$/;"	kind:namespace	line:2
+Skype	skype.py	/^from skpy import Skype, SkypeConnection, SkypeChats$/;"	kind:namespace	line:3
+SkypeChats	skype.py	/^from skpy import Skype, SkypeConnection, SkypeChats$/;"	kind:namespace	line:3
+SkypeConnection	skype.py	/^from skpy import Skype, SkypeConnection, SkypeChats$/;"	kind:namespace	line:3
+SkypeProcess	skype.py	/^class SkypeProcess(multiprocessing.Process):$/;"	kind:class	line:6
+SkypeService	skype.py	/^class SkypeService(GatherService):$/;"	kind:class	line:26
+SlackClient	slack.py	/^from slackclient import SlackClient$/;"	kind:namespace	line:1
+__init__	FacebookService.py	/^    def __init__(self, username, password):$/;"	kind:member	line:7
+__init__	GatherMessage.py	/^    def __init__(self, body, sender, recipient,time):$/;"	kind:member	line:4
+__init__	skype.py	/^    def __init__(self, token, username, password):$/;"	kind:member	line:8
+__init__	skype.py	/^    def __init__(self,token,username,password):$/;"	kind:member	line:28
+__init__.py	__init__.py	1;"	kind:file	line:1
+__repr__	GatherMessage.py	/^    def __repr__(self):$/;"	kind:member	line:13
+__str__	GatherMessage.py	/^    def __str__(self):$/;"	kind:member	line:10
+connect	skype.py	/^    def connect(self, token, username, password):$/;"	kind:member	line:13
+fbchat	FacebookService.py	/^import fbchat$/;"	kind:namespace	line:1
+get_Sender_Recipient	FacebookService.py	/^    def get_Sender_Recipient(self, fbmsg, username, their_name):$/;"	kind:member	line:41
+get_channel_id	slack.py	/^def get_channel_id(slack_object,name):$/;"	kind:function	line:41
+get_channel_names	slack.py	/^def get_channel_names(slack_object):$/;"	kind:function	line:26
+get_contacts	FacebookService.py	/^    def get_contacts(self):$/;"	kind:member	line:21
+get_contacts	GatherService.py	/^    def get_contacts(self):$/;"	kind:member	line:4
+get_contacts	skype.py	/^    def get_contacts(self):$/;"	kind:member	line:39
+get_conversation	FacebookService.py	/^    def get_conversation(self, recipient):$/;"	kind:member	line:26
+get_friend	FacebookService.py	/^    def get_friend(self, their_name):$/;"	kind:member	line:48
+get_latest_message	slack.py	/^def get_latest_message(slack_object,channel_id):$/;"	kind:function	line:79
+get_messages	GatherService.py	/^    def get_messages(self, contact_name):$/;"	kind:member	line:7
+get_messages	skype.py	/^    def get_messages(self,target):$/;"	kind:member	line:57
+get_token	slack.py	/^def get_token():$/;"	kind:function	line:3
+initialize_object	slack.py	/^def initialize_object(token):$/;"	kind:function	line:9
+join_channel	slack.py	/^def join_channel(slack_object,channel):$/;"	kind:function	line:61
+leave_channel	slack.py	/^def leave_channel(slack_object,channel):$/;"	kind:function	line:70
+login	skype.py	/^def login(username,password):$/;"	kind:function	line:72
+multiprocessing	skype.py	/^import time, multiprocessing, requests$/;"	kind:namespace	line:4
+requests	skype.py	/^import time, multiprocessing, requests$/;"	kind:namespace	line:4
+send_message	FacebookService.py	/^    def send_message(self, recipient, message):$/;"	kind:member	line:12
+send_message	GatherService.py	/^    def send_message(self, contact_name, message):$/;"	kind:member	line:10
+send_message	skype.py	/^    def send_message(self, recipient, message):$/;"	kind:member	line:48
+send_message	slack.py	/^def send_message(slack_object,message,channel):$/;"	kind:function	line:15
+skype.py	skype.py	1;"	kind:file	line:1
+slack.py	slack.py	1;"	kind:file	line:1
+time	skype.py	/^import time, multiprocessing, requests$/;"	kind:namespace	line:4
