@@ -54,7 +54,7 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h3>Contacts</h3>
+      <h3>Contacts <span class="fa fa-plus pull-right"></span></h3>
       
       <div class="input-group" id="search-box">
         <input type="text" class="form-control" placeholder="Search Contacts...">
@@ -68,7 +68,7 @@
       <br>
       <ul class="nav nav-pills nav-stacked list-group" id="contact-list">
 
-        <li class="list-group-item justify-content-between active test-contact contact text-primary">
+        <li class="list-group-item justify-content-between active contact text-primary" id="contact1">
           Rachel Hong
           
           <span class="btn-group pull-right edit-button">
@@ -77,16 +77,65 @@
             </button>
 
             <ul class="dropdown-menu" role="menu">
-                <li data-toggle="modal" data-target="#edit-name-modal"><a href="#">Edit name</a></li>
+                <li data-toggle="modal" data-target="#edit-name-modal" class="open-edit-name-modal" data-id="contact1"><a href="#">Edit name</a></li>
                 <li><a href="#">Delete contact</a>
                 </li>
             </ul>
           </span>
 
         </li>
-   <ul class="nav nav-pills nav-stacked" id="contact-list">
-        <li class="list-group-item contact"><a>hong.rach2009</a></li>
-        <li class="list-group-item contact"><a>ptwob0</a></li>
+
+        <li class="list-group-item justify-content-between contact text-primary"  id="contact2">
+          Joe "Daddy" Biden
+          
+          <span class="btn-group pull-right edit-button">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="fa fa-pencil-square-o"></span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+                <li data-toggle="modal" data-target="#edit-name-modal" class="open-edit-name-modal" data-id="contact2"><a href="#">Edit name</a></li>
+                <li><a href="#">Delete contact</a>
+                </li>
+            </ul>
+          </span>
+
+        </li>
+
+        <li class="list-group-item justify-content-between contact text-primary"  id="contact3">
+          gatherbois
+          
+          <span class="btn-group pull-right edit-button">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="fa fa-pencil-square-o"></span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+                <li data-toggle="modal" data-target="#edit-name-modal" class="open-edit-name-modal" data-id="contact3"><a href="#">Edit name</a></li>
+                <li><a href="#">Delete contact</a>
+                </li>
+            </ul>
+          </span>
+
+        </li>
+
+        <li class="list-group-item justify-content-between contact text-primary"  id="contact4">
+          maxsun
+          
+          <span class="btn-group pull-right edit-button">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="fa fa-pencil-square-o"></span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+                <li data-toggle="modal" data-target="#edit-name-modal" class="open-edit-name-modal" data-id="contact4"><a href="#">Edit name</a></li>
+                <li><a href="#">Delete contact</a>
+                </li>
+            </ul>
+          </span>
+
+        </li>
+
       </ul>
 
     </div>
@@ -159,13 +208,14 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="form-control-label">Edit name: </label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="hidden" id="current-name" value="">
+            <input type="text" class="form-control" id="recipient-name" value="">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-white-text" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-white-text">Save changes</button>
+        <button type="button" class="btn btn-primary btn-white-text" id="save-name-btn">Save changes</button>
       </div>
     </div>
   </div>
