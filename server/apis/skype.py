@@ -2,6 +2,7 @@ from GatherMessage import GatherMessage
 from GatherService import GatherService
 from skpy import Skype, SkypeConnection, SkypeChats
 import time, multiprocessing, requests
+from datetime import datetime
 
 class SkypeProcess(multiprocessing.Process):
   

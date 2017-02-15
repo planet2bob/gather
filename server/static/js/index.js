@@ -14,7 +14,7 @@ socket.on('connect', function() {
 });
 
 
-$('.test-contact').hover(function() {
+$('.contact').hover(function() {
         $(this).find(".edit-button").show();
     }, 
     function() {
@@ -32,6 +32,31 @@ $('.contact').click(function() {
     $(this).addClass('active');
     renderMessages();
 });
+
+$(document).on("click", ".open-edit-name-modal", function () {
+    var contactId = $(this).data('id');
+    $(".modal-body #current-name").val( contactId );
+
+});
+
+$('#save-name-btn').click(function() {
+    console.log('saving name...');
+    var newName = document.getElementById('recipient-name').value;
+    document.getElementById('recipient-name').value = "";
+    console.log("New name: " + newName);
+
+    contactId = "#" + $(".modal-body #current-name").val();
+    console.log(contactId);
+
+    contactChildren = $(contactId).children();
+    $(contactId).text(newName);
+    $(contactId).append(contactChildren);
+
+    console.log("This SHOULD save new name to database.");
+
+    $('#edit-name-modal').modal('hide');
+
+})
 
 socket.on('status', function (data) {
     console.log(data);

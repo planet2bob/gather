@@ -73,7 +73,11 @@ html, body {
 
 .modal{
   vertical-align: middle;
-  padding: 10vh;
+  padding: 10%;
+}
+
+.modal-dialog{
+  width: 30% !important;
 }
 
 #search-box{
