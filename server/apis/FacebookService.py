@@ -1,29 +1,20 @@
 import fbchat
-from Service import Service
+from GatherService import GatherService
 import GatherMessage
 
-class FBService(Service):
-
+class FacebookService(GatherService):
+    
     def __init__(self, username, password):
         self.username = username
-        self.password = password
         self.client = fbchat.Client(username, password)
-    
-    def send_message(self, recipient, message):
-        print(recipient)
-        print(message)
-        person = self.get_friend(recipient)
-        sent = self.client.send(person.uid, message)
-        if sent:
-            return True
-        return False
-    
-    def get_contacts(self):
-        #I think I need tokens here, this is terrible, what am I doing?
-        contact_list = []
-        return contact_list
         
-    def get_conversation(self, recipient):
+    def get_contacts(self):
+        '''Returns all contacts from service'''
+        #I need tokens for this, Kevin!!  >________<
+        raise NotImplementedError("Must implement get_contacts")
+    
+    def get_messages(self, recipient):
+        '''Returns GatherMessages given a contact'''
         conversation = self.client.getThreadInfo(self.get_friend(recipient).uid, 0)
         revcontent = []
         for message in conversation:
@@ -33,17 +24,27 @@ class FBService(Service):
             content.append(revcontent[i])
         message_list = []
         for fbmsg in content:
-            sender_recipient = self.get_Sender_Recipient(fbmsg, self.username, recipient)
-            m = GatherMessage.GatherMessage(str(fbmsg.body), sender_recipient[0], sender_recipient[1])
-            message_list.append(m)
+            message_list.append(self.convert_message(fbmsg, recipient))
         return message_list
-
+    
+    def convert_message(self, fbmsg,recipient):
+        sender_recipient = self.get_Sender_Recipient(fbmsg, self.username, recipient)
+        return GatherMessage.GatherMessage(str(fbmsg.body), sender_recipient[0], sender_recipient[1], fbmsg.timestamp) #Note: I'm currently assuming we're using timestamp for GatherMessage's time field...
+        
     def get_Sender_Recipient(self, fbmsg, username, their_name):
-        #only works for two people conversation
-        #returns tuple (sender, recipient)
+        #only works for two people conversation, returns tuple(sender, recipient)
         if(fbmsg.author == self.get_friend(their_name).uid):
             return (their_name, username)
         return (username, their_name)
+            
+    def send_message(self, recipient, message):
+        '''Sends (string) message to recipient'''
+        person = self.get_friend(recipient)
+        sent = self.client.send(person.uid, message)
+        if sent:
+            return True
+        return False
     
     def get_friend(self, their_name):
         return self.client.getUsers(their_name)[0]
+
