@@ -37,12 +37,17 @@ table{
     -webkit-border-radius: 0px;
        -moz-border-radius: 0px;
             border-radius: 0px;
-    }
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
 
+    }
+/*
 #g-signin2{
     padding: 0px 0px;
     
 }
+*/
 
 .box {
     background-color: white;
@@ -117,6 +122,14 @@ img{
 }
 #about-us:hover{
     color: white;
+}
+
+.g-signin2{
+  width: 100%;
+}
+
+.g-signin2 > div{
+  margin: 0 auto;
 }
 
 /* content styles */
