@@ -1,6 +1,10 @@
 import skype
 import threading
 
+class User(object):
+    def __init__(self):
+        self.services = {}
+
 # username = raw_input('username: ')
 # password = raw_input('password: ')
 username = 'gatherbois@gmail.com'
@@ -33,6 +37,8 @@ while True:
         if command == 'r':
             current_recipient = i[i.index(' ') + 1:].strip()
             print current_recipient
+        if command == 'c':
+            print 
     else:
         skype_object.send_message(current_recipient, i)
         print_messages(skype_object)
