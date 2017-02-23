@@ -29,7 +29,7 @@ class FacebookService(GatherService):
     
     def convert_message(self, fbmsg,recipient):
         sender_recipient = self.get_Sender_Recipient(fbmsg, self.username, recipient)
-        return GatherMessage.GatherMessage(str(fbmsg.body), sender_recipient[0], sender_recipient[1], fbmsg.timestamp) #Note: I'm currently assuming we're using timestamp for GatherMessage's time field...
+        return GatherMessage.GatherMessage(str(fbmsg.body), sender_recipient[0], sender_recipient[1], fbmsg.timestamp_datetime)
         
     def get_Sender_Recipient(self, fbmsg, username, their_name):
         #only works for two people conversation, returns tuple(sender, recipient)
