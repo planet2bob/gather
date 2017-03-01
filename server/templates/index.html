@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Server-Test</title>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    </head>
+    <body>
+        <h1>Server-Test</h1>
+        <h3>My Id:</h3>
+        <p id="my-id"></p>
+        <h3>Num Users:</h3>
+        <p id="num-users"></p>
+        <h4>Username:</h4>
+        <input id="user">
+        <h4>Pass:</h4>
+        <input id="pass">
+        <input type="button" id="submit" value="Submit">
+    </body>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.on('num-users', function(num) {
+            document.getElementById('num-users').innerText = num;
+        });
+        socket.on('id', function(id) {
+            document.getElementById('my-id').innerText = id;
+        })
+        socket.on('contacts', function(data) {
+            console.log(data);
+        });
+        document.getElementById('submit').onclick=function() {
+            var username = document.getElementById('user').value;
+            var password = document.getElementById('pass').value;
+            socket.emit('acc-info', {
+                username: username,
+                password: password
+            });
+        }
+    </script>
+</html>
