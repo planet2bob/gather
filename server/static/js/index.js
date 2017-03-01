@@ -14,22 +14,71 @@ socket.on('connect', function() {
 });
 
 
-    jQuery(function($) {
-        var panelList = $('#draggablePanelList');
+$(function() {
 
-        panelList.sortable({
-            // Only make the .panel-heading child elements support dragging.
-            // Omit this to make then entire <li>...</li> draggable.
-            update: function() {
-                $('.contact', panelList).each(function(index, elem) {
-                     var $listItem = $(elem),
-                         newIndex = $listItem.index();
+    var sortables = $(".contact");
+    var draggedItem;
 
-                     // Persist the new indices.
-                });
-            }
-        });
+    $("#contact-list").sortable({
+        start: function(event, ui) {
+            draggedItem = ui.item;
+            $(window).mousemove(moved);
+        },
+        stop: function(event, ui) {
+            $(window).unbind("mousemove", moved);
+        }
     });
+
+    function moved(e) {
+
+        //Dragged item's position++
+        var dpos = draggedItem.position();
+        var d = {
+            top: dpos.top,
+            bottom:    dpos.top + draggedItem.height(),
+            left: dpos.left,
+            right: dpos.left + draggedItem.width()
+        };
+
+        //Find sortable elements (li's) covered by draggedItem
+        var hoveredOver = sortables.not(draggedItem).filter(function() {
+            var t = $(this);
+            var pos = t.position();
+
+            //This li's position++
+            var p = {
+                top: pos.top,
+                bottom:    pos.top + t.height(),
+                left: pos.left,
+                right: pos.left + t.width()
+            };
+
+            //itc = intersect
+            var itcTop         = p.top <= d.bottom;
+            var itcBtm         = d.top <= p.bottom;
+            var itcLeft     = p.left <= d.right;
+            var itcRight     = d.left <= p.right;
+
+            return itcTop && itcBtm && itcLeft && itcRight;
+        });
+
+        $("#status").empty();
+        hoveredOver.each(function() {
+            console.log(draggedItem.html() + " hovers over " + this.innerHTML );
+        });
+    };
+
+});
+
+    
+// $( ".contact" ).draggable({
+//   drag: function( event, ui ) {
+//     // $('#contact2').hover(function() {
+//     //     console.log("merge here");
+//     // })
+//   }
+// });
+
 
 $('.contact').hover(function() {
         $(this).find(".edit-button").show();

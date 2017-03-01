@@ -59,8 +59,10 @@ html, body {
 }
 
 .contact {
-  height: 11%;
+  height: 12%;
+  margin: 5px;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .edit-button {
