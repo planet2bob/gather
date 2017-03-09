@@ -66,31 +66,8 @@ class SlackService(GatherService):
         return names
 
     def get_message(self, target):
-        users = self.slack_object.api_call(
-            "users.list"
-            )
-        members = users["members"]
-        counter = 0
-        while counter < len(members):
-            
-            member = members[counter]
-            if member["name"] == target:
-                
-                target_id = member["id"]
-                
-            counter = counter + 1
-
-        channels = self.slack_object.api_call(
-            "im.list"
-            )
-        channels = channels["ims"]
-        counter = 0
-        while counter < len(channels):
-            
-            if channels[counter]["user"] == target_id:
-                target_channel_id = channels[counter]["id"]
-                
-            counter = counter + 1
+        target_id = get_target_id(self.slack_object,target)
+        target_channel_id = get_target_channel_id(self.slack_object,target_id)
 
         messages = self.slack_object.api_call(
             "im.history",
@@ -99,13 +76,7 @@ class SlackService(GatherService):
 
         messages = messages["messages"]
 
-        id_to_name = {}
-        counter = 0
-        while counter < len(members):
-            
-            member = members[counter]
-            id_to_name[member["id"]] = member["name"]
-            counter = counter + 1
+        id_to_name = make_id_to_name(self.slack_object)
 
         results = []
         counter = 0
@@ -137,6 +108,53 @@ class SlackService(GatherService):
                 counter = counter + 1
 
         return results
+
+def get_target_channel_id(slack_object,target_id):
+    channels = slack_object.api_call(
+        "im.list"
+        )
+    channels = channels["ims"]
+    counter = 0
+    while counter < len(channels):
+        
+        if channels[counter]["user"] == target_id:
+            target_channel_id = channels[counter]["id"]
+            
+        counter = counter + 1
+
+    return target_channel_id
+
+def get_target_id(slack_object,target):
+    users = slack_object.api_call(
+        "users.list"
+        )
+    members = users["members"]
+    counter = 0
+    while counter < len(members):
+        
+        member = members[counter]
+        if member["name"] == target:
+            
+            target_id = member["id"]
+            
+        counter = counter + 1
+
+    return target_id
+
+def make_id_to_name(slack_object):
+    users = slack_object.api_call(
+        "users.list"
+        )
+    members = users["members"]
+    id_to_name = {}
+    counter = 0
+    while counter < len(members):
+        
+        member = members[counter]
+        id_to_name[member["id"]] = member["name"]
+        counter = counter + 1
+
+    return id_to_name
 
 def get_token():
     #This one's yours Kevin
