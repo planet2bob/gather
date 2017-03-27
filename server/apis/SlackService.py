@@ -71,8 +71,11 @@ class SlackService(GatherService):
 
         messages = self.slack_object.api_call(
             "im.history",
-            channel=target_channel_id
+            channel=target_channel_id,
+            unreads=True
             )
+
+        unread_count = messages["unread_count_display"]
 
         messages = messages["messages"]
 
@@ -80,7 +83,7 @@ class SlackService(GatherService):
 
         results = []
         counter = 0
-        while counter < len(messages):
+        while counter < unread_count:
 
             single_message = messages[counter]
 
