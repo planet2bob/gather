@@ -1,6 +1,7 @@
 import fbchat
 from GatherService import GatherService
 import GatherMessage
+from datetime import datetime
 
 class FacebookService(GatherService):
     
@@ -36,6 +37,9 @@ class FacebookService(GatherService):
         if(fbmsg.author == self.get_friend(their_name).uid):
             return (their_name, username)
         return (username, their_name)
+
+    def convertDate(self, tstamp):
+        return datetime.fromtimestamp(tstamp/1000)
             
     def send_message(self, recipient, message):
         '''Sends (string) message to recipient'''
