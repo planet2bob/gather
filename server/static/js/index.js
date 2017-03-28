@@ -68,8 +68,8 @@ $(function() {
         });
 
         hoveredOver.each(function() {
-            // draggedItemName = draggedItem.text().replace('Edit name', '').replace('Delete contact', '').trim();
-            // hoveredOverName = this.textContent.replace('Edit name', '').replace('Delete contact', '').trim();
+            // draggedItemName = draggedItem.text().replace('Edit name', '').replace('Delete conversation', '').trim();
+            // hoveredOverName = this.textContent.replace('Edit name', '').replace('Delete conversation', '').trim();
             canMerge = true;
             c1 = draggedItem.attr('id');
             c2 = this.id;
@@ -87,15 +87,28 @@ $(".contact").mouseup(function(){
 });
 
 function mergeContacts(c1, c2) { // args are contact id's
-    console.log("MERGING CONTACTS " + c1 + " and " + c2);
-    //way more display of messages needed, but that'll happen once render messages is done
-    $('#'+c2).remove();
+
+    if (confirm("Are you sure you want to merge these two contacts?")) {
+        console.log("MERGING CONTACTS " + c1 + " and " + c2);
+        console.log("THIS SHOULD MERGE " + c1 + " AND " + c2 + " IN THE DATABASE");
+        //way more frontend display of messages needed, but that'll happen once render messages is done
+        $('#'+c2).remove();
+    }
+    else {
+
+    }
+    canMerge = false;
 }
 
-$(document).on("click", ".delete-contact", function () {
-    var contactId = $(this).data('id');
-    console.log("THIS SHOULD DELETE " + contactId + " FROM DATABASE");
-    $('#'+contactId).remove();
+$(document).on("click", ".delete-convo", function () {
+    if (confirm("Do you want to delete this conversation?")) {
+        var contactId = $(this).data('id');
+        console.log("THIS SHOULD DELETE CONVERSATION OF " + contactId + " FROM DATABASE");
+        $('#'+contactId).remove();
+    }
+    else{
+
+    }
 });
 
 
@@ -138,8 +151,7 @@ $('#save-name-btn').click(function() {
     $(contactId).text(newName);
     $(contactId).append(contactChildren);
 
-    //prints to console that it should save to database
-    console.log("This SHOULD save new name to database.");
+    console.log("THIS SHOULD SAVE NEW NAME " + newName + " TO DATABASE.");
 
     $('#edit-name-modal').modal('hide');
 
@@ -252,3 +264,4 @@ window.setInterval(function(){
 }, 5000);
 
 renderMessages();
+renderContacts();
