@@ -66,9 +66,10 @@ class SkypeService(GatherService):
                 sender = message.userId
                 recipient = message.chatId
                 time = message.time
+                time = datetime.strptime(time,"%Y-%m-%d %H:%M:%S.%f")
                 if "8:" + sender != recipient:
                     sender = self.username
-                results.append(GatherMessage(str(content), str(sender), str(recipient), str(time)))
+                results.append(GatherMessage(str(content), str(sender), str(recipient), time))
             return results
         except:
             print 'No Recent Messages'
