@@ -1,4 +1,4 @@
-//function renderContacts(list of contacts) {
+function renderContacts() { // function renderContacts(list of contacts) {
 
     var contactList = document.createElement('ul'); //document.getElementById("contact-list");
 
@@ -92,4 +92,6 @@
 
     console.log(document.getElementsByClassName('active contact')[0].id);
 
-//}
+}
+
+renderContacts();
