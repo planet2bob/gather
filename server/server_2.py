@@ -1,13 +1,16 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, join_room, leave_room
-import random
-import skype
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
+from apis import SkypeService
+import eventlet
+eventlet.monkey_patch()
+async_mode = 'eventlet'
+app = Flask(__name__, template_folder='./html')
+app.config['SECRET_KEY'] = 'secretg!'
 socketio = SocketIO(app)
 
 CURRENT_USERS = {}
+
+ping_check = []
 
 class User(object):
     '''A class to represent a connected client'''
@@ -16,28 +19,33 @@ class User(object):
         self.sid = sid
         self.services = {}
 
+def ping_id(_id):
+    socketio.emit('ping', room=_id)
+    ping_check.append(_id)
+
 @socketio.on('connect')
 def connect():
     '''Client connect'''
     sid = request.sid
     CURRENT_USERS[sid] = {}
-    socketio.emit('num-users', len(CURRENT_USERS))
+    socketio.emit('num_users', len(CURRENT_USERS))
     join_room(sid)
     socketio.emit('id', sid, room=sid)
     print 'connect: %s' % str(sid)
 
 @socketio.on('disconnect')
 def disconnect():
-    '''Client disconnect'''
+    '''Client disconnect using homemade DC event (the built in disconnect wasn't working)'''
     sid = request.sid
     leave_room(sid)
     del CURRENT_USERS[sid]
-    socketio.emit('num-users', len(CURRENT_USERS))
+    socketio.emit('num_users', len(CURRENT_USERS))
     print 'disconnect: %s' % str(sid)
 
-@socketio.on('acc-info')
+@socketio.on('acc_info')
 def login_account(data):
-    skype_object = skype.login(data['username'], data['password'])
+    print data
+    skype_object = SkypeService.login(data['username'], data['password'])
     sid = request.sid
     CURRENT_USERS[sid]['skype'] = skype_object
     socketio.emit('contacts', skype_object.get_contacts(), room=sid)
@@ -46,6 +54,14 @@ def login_account(data):
 def index():
     '''Display the home screen'''
     return render_template('index.html')
+
+@app.route("/login")
+def login():
+    return render_template('login.html')
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)

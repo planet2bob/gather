@@ -77,3 +77,5 @@ class SkypeService(GatherService):
 
 def login(username,password):
     return SkypeService(None, username, password)
+
+# login('gatherbois@gmail.com', 'Andrew_PAD_#_1')

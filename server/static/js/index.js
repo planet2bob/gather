@@ -4,20 +4,42 @@ var messages = [{
     'source': 'slack',
     'recipient': 'Joe "Daddy" Biden'
 }];
-var socket = io.connect('http://' + document.domain + ':' + location.port);
-socket.on('connect', function() {
-    console.log('connected!');
-    socket.emit('connected', {
-        username: 'maxsun',
-        password: 'abcd'
-    });
-});
 
 var canMerge;
 var c1;
 var c2;
 
+var socket = io.connect('http://' + document.domain + ':' + location.port, {'sync disconnect on unload':true});
+socket.on('num_users', function(num) {
+    console.log('num-users: ' + num);
+});
+socket.on('id', function(id) {
+    console.log('id: ' + id);
+})
+socket.on('contacts', function(data) {
+    console.log(data);
+});
+socket.on('message', function (data) {
+    console.log(data);
+    messages.push(data);
+    renderMessages();
+});
+document.getElementById('submit').onclick=function() {
+    var username = document.getElementById('user').value;
+    var password = document.getElementById('pass').value;
+    socket.emit('acc_info', {
+        username: username,
+        password: password
+    });
+}
+
+
 $(function() {
+
+    window.onbeforeunload = function() {
+        socket.emit('dc');
+        console.log('!');
+    }
 
     var sortables = $(".contact");
     var draggedItem;
@@ -162,17 +184,6 @@ function renderContacts() {
     return;
 }
 
-
-socket.on('status', function (data) {
-    console.log(data);
-});
-
-socket.on('message', function (data) {
-    console.log(data);
-    messages.push(data);
-    renderMessages();
-});
-
 function renderMessages() {
     var activeContact = $('.active').text();
     document.getElementById('messages-box').innerHTML = "";
@@ -251,17 +262,6 @@ $("#own-message").keyup(function(event){
         });
     }
 });
-
-function requestMessages() {
-    socket.emit('get', {
-        username: 'maxsun',
-        password: 'abcd'
-    });
-}
-
-window.setInterval(function(){
-    requestMessages();
-}, 5000);
 
 renderMessages();
 renderContacts();

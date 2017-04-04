@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Server-Test</title>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     </head>
     <body>
@@ -16,8 +17,8 @@
         <input type="button" id="submit" value="Submit">
     </body>
     <script type="text/javascript" charset="utf-8">
-        var socket = io.connect('http://' + document.domain + ':' + location.port);
-        socket.on('num-users', function(num) {
+        var socket = io.connect('http://' + document.domain + ':' + location.port, {'sync disconnect on unload':true});
+        socket.on('num_users', function(num) {
             document.getElementById('num-users').innerText = num;
         });
         socket.on('id', function(id) {
@@ -29,10 +30,14 @@
         document.getElementById('submit').onclick=function() {
             var username = document.getElementById('user').value;
             var password = document.getElementById('pass').value;
-            socket.emit('acc-info', {
+            socket.emit('acc_info', {
                 username: username,
                 password: password
             });
+        }
+        window.onbeforeunload = function() {
+            socket.emit('dc');
+            console.log('!');
         }
     </script>
 </html>
