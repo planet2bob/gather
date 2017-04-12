@@ -4,6 +4,11 @@ from apis import SkypeService
 import eventlet
 eventlet.monkey_patch()
 async_mode = 'eventlet'
+import time, threading
+from flask import Flask, render_template, request, session, jsonify
+from flask_socketio import SocketIO, emit, join_room
+from apis import SkypeService
+
 app = Flask(__name__, template_folder='./html')
 app.config['SECRET_KEY'] = 'secretg!'
 socketio = SocketIO(app)

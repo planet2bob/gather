@@ -57,7 +57,7 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h3>Contacts <span class="fa fa-plus pull-right"></span></h3>
+      <h3>Contacts <span id="add-contact" class="fa fa-plus pull-right"></span></h3>
       
       <div class="input-group" id="search-box">
         <input type="text" class="form-control" placeholder="Search Contacts...">
@@ -204,7 +204,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modals -->
 <div class="modal fade" id="edit-name-modal" tabindex="-1" role="dialog" aria-labelledby="edit-name-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -224,6 +224,39 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="add-contact-modal" tabindex="-1" role="dialog" aria-labelledby="add-contact-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form>
+
+          <div class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="platform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <big><span id="select-platform" class="fa fa-wechat"></span> WeChat</big>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="platform" id="platform-dropdown" > <!-- onload = renderServiceIcons(contact); -->
+
+              <li id="wechat"><a href="#"><big><span class="fa fa-wechat"></span> WeChat</big></a></li>
+              <li id="skype"><a href="#"><big><span class="fa fa-skype"></span> Skype</big></a></li>
+              <li id="slack"><a href="#"><big><span class="fa fa-slack"></span> Slack</big></a></li>
+              <li id="whatsapp"><a href="#"><big><span class="fa fa-whatsapp"> WhatsApp</span></big></a></li>
+
+            </ul>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-white-text" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-white-text" id="next">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- <footer class="container-fluid">
   <p>Footer Text</p>

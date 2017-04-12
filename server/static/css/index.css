@@ -54,6 +54,10 @@ html, body {
   position: relative;
 }
 
+#add-contact {
+  cursor: pointer;
+}
+
 #contact-list {
   height: 70vh;
 }
