@@ -8,6 +8,7 @@ import time, threading
 from flask import Flask, render_template, request, session, jsonify
 from flask_socketio import SocketIO, emit, join_room
 from apis import SkypeService
+import json
 
 app = Flask(__name__, template_folder='./html')
 app.config['SECRET_KEY'] = 'secretg!'
@@ -67,6 +68,14 @@ def login():
 @app.route("/about")
 def about():
     return render_template('about.html')
+
+@app.route("/trylogin", methods=["POST",])
+def verify():
+    data = json.loads(request.data)
+    password = data['password']
+    username = data['username']
+    print username, password
+    return ''
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)

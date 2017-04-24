@@ -11,21 +11,25 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/login.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 
     <link rel="icon" href="{{ url_for('static', filename='./images/logo.png') }}">
 
     <meta name="google-signin-client_id" content="433901103775-8jkmouhrnvkmk5mm8bd6opm42e13c9rg.apps.googleusercontent.com">
-    </head>
+</head>
 
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-    
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <body>
     <!--  MOVE THIS TO JS FOLDER LATER  -->
     <script>
@@ -37,8 +41,7 @@
                 ele1.style.display = "none";
                 ele2.style.display = "none";
                 text.innerHTML = "Signing Up";
-            }
-            else {
+            } else {
                 ele1.style.display = "block";
                 ele2.style.display = "block";
                 text.innerHTML = "Already Have an Account";
@@ -48,15 +51,14 @@
         function check(input, box) {
             if (input.value != document.getElementById(box).value) {
                 input.setCustomValidity('Field Must be Matching.');
-            }
-            else {
+            } else {
                 input.setCustomValidity('');
             }
         }
     </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <script src="https://apis.google.com/js/api:client.js"></script>
-<!--
+    <!--
     <script>
         var googleUser = {};
         var startApp = function () {
@@ -83,108 +85,68 @@
 -->
     <div class="row">
         <div class="row-height">
-    <div class="col-sm-4 col-sm-offset-3">
-        <div class="inside">
-        <div class="box" style="height: 310px;">
-            <div class="box-icon"><img src="../static/images/slogo.svg"><span class="fa fa-4x fa-html5"></span> </div>
-            <div class="info">
-                <h4 class="text-center">gather</h4>
-                <form class="form-group" action="http://localhost:5000/tryLogin" method="Post">
-                    <div>
-                        <label for="email">Email Address:</label>
-                        <input type="email" class="form-control" id="email" name="email"> </div>
-                    <br>
-                    <div class="confirmations" id="toggleEmailConfirmation" style="display: none">
-                        <div class="form-group">
-                            <label for="email">Confirm Email Address:</label>
-                            <input type="email" class="form-control" id="email-conf" oninput="check(this, 'email')"> </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" name="pwd"> </div>
-                    <div class="confirmations" id="togglePasswordConfirmation" style="display: none">
-                        <div class="form-group">
-                            <label for="pwd">Confirm Password:</label>
-                            <input type="password" class="form-control" id="pwd-conf" oninput="check(this, 'pwd')"> </div>
-                    </div>
-                                  <script>startApp();</script>
+            <div class="col-sm-4 col-sm-offset-3">
+                <div class="inside">
+                    <div class="box" style="height: 310px;">
+                        <div class="box-icon"><img src="../static/images/slogo.svg"><span class="fa fa-4x fa-html5"></span> </div>
+                        <div class="info">
+                            <h4 class="text-center">gather</h4>
+                            <form class="form-group" action="http://localhost:5000/tryLogin" method="Post">
+                                <div>
+                                    <label for="email">Email Address:</label>
+                                    <input type="email" class="form-control" id="email" name="email"> </div>
+                                <br>
+                                <div class="confirmations" id="toggleEmailConfirmation" style="display: none">
+                                    <div class="form-group">
+                                        <label for="email">Confirm Email Address:</label>
+                                        <input type="email" class="form-control" id="email-conf" oninput="check(this, 'email')"> </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Password:</label>
+                                    <input type="password" class="form-control" id="pwd" name="pwd"> </div>
+                                <div class="confirmations" id="togglePasswordConfirmation" style="display: none">
+                                    <div class="form-group">
+                                        <label for="pwd">Confirm Password:</label>
+                                        <input type="password" class="form-control" id="pwd-conf" oninput="check(this, 'pwd')"> </div>
+                                </div>
+                                <script>
+                                    startApp();
+                                </script>
                                 <a class="btn btn-info" id="displayText" href="javascript:toggleSignUp();">Register</a>
                                 <input id="submitLogin" class="btn btn-primary" type="button" value="Submit"></input>
-            </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="about"><a id="about-us" href="/about">About Us</a></div>
+            </div>
+            <div class="col-sm-2">
+                <div class="inside">
+                    <div class="box center" style="height: 310px;"> <br><br>
+                        <div class="g-signin2" data-theme="dark" data-onsuccess="onSignIn">button</div>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+                        <script>
+                            function onSignIn(googleUser) {
+                                var profile = googleUser.getBasicProfile();
+                                console.log("ID: " + profile.getId());
+                                console.log('Full Name: ' + profile.getName());
+                                console.log('Given Name: ' + profile.getGivenName());
+                                console.log('Family Name: ' + profile.getFamilyName());
+                                console.log("Image URL: " + profile.getImageUrl());
+                                console.log("Email: " + profile.getEmail());
+                                // ID token -> Backend
+                                var id_token = googleUser.getAuthResponse().id_token;
+                                console.log("ID Token: " + id_token);
+                            };
+                        </script>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-            </div>
-    <div class="about"><a id="about-us" href="/about">About Us</a></div>
-    </div>
-<div class="col-sm-2">
-    <div class="inside">
-    <div class="box center" style="height: 310px;"> <br><br>
-         <div class="g-signin2" data-theme="dark" data-onsuccess="onSignIn">button</div>
-        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
-    <script>
-      function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-        // ID token -> Backend
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      };
-    </script> 
-        </div></div></div></div></div>
 
 </body>
 <script>
-    function sha1(msg) {
-        function rotl(n, s) {
-            return n << s | n >>> 32 - s;
-        };
-
-        function tohex(i) {
-            for (var h = "", s = 28;; s -= 4) {
-                h += (i >>> s & 0xf).toString(16);
-                if (!s) return h;
-            }
-        };
-        var H0 = 0x67452301
-            , H1 = 0xEFCDAB89
-            , H2 = 0x98BADCFE
-            , H3 = 0x10325476
-            , H4 = 0xC3D2E1F0
-            , M = 0x0ffffffff;
-        var i, t, W = new Array(80)
-            , ml = msg.length
-            , wa = new Array();
-        msg += String.fromCharCode(0x80);
-        while (msg.length % 4) msg += String.fromCharCode(0);
-        for (i = 0; i < msg.length; i += 4) wa.push(msg.charCodeAt(i) << 24 | msg.charCodeAt(i + 1) << 16 | msg.charCodeAt(i + 2) << 8 | msg.charCodeAt(i + 3));
-        while (wa.length % 16 != 14) wa.push(0);
-        wa.push(ml >>> 29), wa.push((ml << 3) & M);
-        for (var bo = 0; bo < wa.length; bo += 16) {
-            for (i = 0; i < 16; i++) W[i] = wa[bo + i];
-            for (i = 16; i <= 79; i++) W[i] = rotl(W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16], 1);
-            var A = H0
-                , B = H1
-                , C = H2
-                , D = H3
-                , E = H4;
-            for (i = 0; i <= 19; i++) t = (rotl(A, 5) + (B & C | ~B & D) + E + W[i] + 0x5A827999) & M, E = D, D = C, C = rotl(B, 30), B = A, A = t;
-            for (i = 20; i <= 39; i++) t = (rotl(A, 5) + (B ^ C ^ D) + E + W[i] + 0x6ED9EBA1) & M, E = D, D = C, C = rotl(B, 30), B = A, A = t;
-            for (i = 40; i <= 59; i++) t = (rotl(A, 5) + (B & C | B & D | C & D) + E + W[i] + 0x8F1BBCDC) & M, E = D, D = C, C = rotl(B, 30), B = A, A = t;
-            for (i = 60; i <= 79; i++) t = (rotl(A, 5) + (B ^ C ^ D) + E + W[i] + 0xCA62C1D6) & M, E = D, D = C, C = rotl(B, 30), B = A, A = t;
-            H0 = H0 + A & M;
-            H1 = H1 + B & M;
-            H2 = H2 + C & M;
-            H3 = H3 + D & M;
-            H4 = H4 + E & M;
-        }
-        return tohex(H0) + tohex(H1) + tohex(H2) + tohex(H3) + tohex(H4);
-    }
-
     function toggleSignUp() {
         var ele1 = document.getElementById("toggleEmailConfirmation");
         var ele2 = document.getElementById("togglePasswordConfirmation");
@@ -193,8 +155,7 @@
             ele1.style.display = "none";
             ele2.style.display = "none";
             text.innerHTML = "Register";
-        }
-        else {
+        } else {
             ele1.style.display = "block";
             ele2.style.display = "block";
             text.innerHTML = "Not Registering";
@@ -204,30 +165,28 @@
     function check(input, box) {
         if (input.value != document.getElementById(box).value) {
             input.setCustomValidity('Field Must be Matching.');
-        }
-        else {
+        } else {
             // input is valid -- reset the error message
             input.setCustomValidity('');
         }
     }
-    $("#submitLogin").click(function () {
+    $("#submitLogin").click(function() {
         var email = $('#email').val();
-        var password = sha1($('#pwd').val());
+        var password = $('#pwd').val();
         console.log(email, password);
         $.ajax({
-            type: "POST"
-            , url: "/tryLogin"
-            , data: JSON.stringify({
-                pwd: password
-                , email: email
-            }, null, '\t')
-            , contentType: 'application/json;charset=UTF-8'
-            , success: function (result) {
+            type: "POST",
+            url: "/trylogin",
+            data: JSON.stringify({
+                'password': password,
+                username: email
+            }, null, '\t'),
+            contentType: 'application/json;charset=UTF-8',
+            success: function(result) {
                 console.log(result);
             }
         });
     });
-    
 </script>
 
 </html>
