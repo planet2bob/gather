@@ -147,6 +147,10 @@
 
 </body>
 <script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port, {
+        'sync disconnect on unload': true
+    });
+
     function toggleSignUp() {
         var ele1 = document.getElementById("toggleEmailConfirmation");
         var ele2 = document.getElementById("togglePasswordConfirmation");
@@ -174,18 +178,14 @@
         var email = $('#email').val();
         var password = $('#pwd').val();
         console.log(email, password);
-        $.ajax({
-            type: "POST",
-            url: "/trylogin",
-            data: JSON.stringify({
-                'password': password,
-                username: email
-            }, null, '\t'),
-            contentType: 'application/json;charset=UTF-8',
-            success: function(result) {
-                console.log(result);
-            }
+        socket.emit('login', {
+            'password': password,
+            username: email
         });
+    });
+
+    socket.on('refresh', function() {
+        console.log('refresh...');
     });
 </script>
 
