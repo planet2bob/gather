@@ -135,7 +135,7 @@ def verify(data):
         print 'Redirect!'
         # print CURRENT_USERS[request.sid]
         CURRENT_USERS[request.sid].logged_in = True
-    socketio.emit('refresh', room=sid)
+    socketio.emit('refresh', room=request.sid)
 
 @app.route("/")
 def index():
