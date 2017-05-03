@@ -230,6 +230,11 @@ $('.sendmethod').click(function() {
     document.getElementById('currentplatform').className = "fa fa-" + method;
 });
 
+$('.add-platform-method').click(function() {
+    var method = this.id;
+    document.getElementById('add-platform').className = "fa fa-" + method;
+});
+
 $("#own-message").keyup(function(event) {
     if (event.keyCode == 13) {
         var val = $('#own-message').val();
