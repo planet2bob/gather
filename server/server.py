@@ -14,8 +14,9 @@ import boto3
 import botocore
 from boto3.dynamodb.conditions import Key, Attr
 
-AWS_SECRET_KEY = 'X298YmNUAaaKAtzD1TOSKpAK1WD3icdz2cqvimvQ'
-AWS_ACCESS_KEY = 'AKIAIIQL5UVDIIITNKWQ'
+session=botocore.session.get_session()
+AWS_SECRET_KEY = session.get_credentials().secret_key
+AWS_ACCESS_KEY = session.get_credentials().access_key
 
 session = botocore.session.get_session()
 dynamodb = boto3.resource('dynamodb', 
