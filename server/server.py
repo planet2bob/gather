@@ -71,7 +71,7 @@ def get_item(item_key):
     try:
         return result['Item']
     except KeyError:
-        print 'Username "%s" does not exist in DB!' % item_key
+        print('Username "%s" does not exist in DB!' % item_key)
         return None
 
 def remove_item(item_key):
@@ -108,7 +108,7 @@ def connect():
     socketio.emit('num_users', len(CURRENT_USERS))
     join_room(sid)
     socketio.emit('id', sid, room=sid)
-    print 'connect: %s' % str(sid)
+    print('connect: %s' % str(sid))
 
 @socketio.on('disconnect')
 def disconnect():
@@ -117,11 +117,11 @@ def disconnect():
     leave_room(sid)
     del CURRENT_USERS[sid]
     socketio.emit('num_users', len(CURRENT_USERS))
-    print 'disconnect: %s' % str(sid)
+    print('disconnect: %s' % str(sid))
 
 @socketio.on('acc_info')
 def login_account(data):
-    print data
+    print(data)
     skype_object = SkypeService.login(data['username'], data['password'])
     sid = request.sid
     CURRENT_USERS[sid]['skype'] = skype_object
@@ -131,11 +131,22 @@ def login_account(data):
 def verify(data):
     password = data['password']
     username = data['username']
-    print username, password
+    print(username, password)
     if try_to_login(username, password):
-        print 'Redirect!'
+        print('Redirect!')
         # print CURRENT_USERS[request.sid]
         CURRENT_USERS[request.sid].logged_in = True
+    socketio.emit('refresh', room=request.sid)
+
+@socketio.on("create")
+def create(data):
+    password = data['password']
+    username = data['username']
+    print('Making account:', username, password)
+    create_account(username, password)
+    # if try_to_login(username, password):
+    #     print('Redirect!')
+    #     CURRENT_USERS[request.sid].logged_in = True
     socketio.emit('refresh', room=request.sid)
 
 @app.route("/")
