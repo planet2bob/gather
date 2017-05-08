@@ -177,7 +177,10 @@
     $("#submitLogin").click(function() {
         var email = $('#email').val();
         var password = $('#pwd').val();
+        var emailConf = $('#email-conf').val();
+        var passConf = $('#pwd-conf').val();
         console.log(email, password);
+        console.log(emailConf, passConf);
         socket.emit('login', {
             'password': password,
             username: email

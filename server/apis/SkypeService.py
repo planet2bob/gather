@@ -72,7 +72,7 @@ class SkypeService(GatherService):
                 results.append(GatherMessage(str(content), str(sender), str(recipient), time))
             return results
         except:
-            print 'No Recent Messages'
+            print('No Recent Messages')
             return []
 
 def login(username,password):
