@@ -114,10 +114,10 @@ def connect():
 def disconnect():
     '''Client disconnect using homemade DC event (the built in disconnect wasn't working)'''
     sid = request.sid
-    leave_room(sid)
-    del CURRENT_USERS[sid]
-    socketio.emit('num_users', len(CURRENT_USERS))
-    print('disconnect: %s' % str(sid))
+    # leave_room(sid)
+    # del CURRENT_USERS[sid]
+    # socketio.emit('num_users', len(CURRENT_USERS))
+    # print('disconnect: %s' % str(sid))
 
 @socketio.on('acc_info')
 def login_account(data):
@@ -135,7 +135,7 @@ def verify(data):
     if try_to_login(username, password):
         print('Redirect!')
         # print CURRENT_USERS[request.sid]
-        CURRENT_USERS[request.sid].logged_in = True
+        CURRENT_USERS[(request.sid + '.')[:-1]].logged_in = True
         socketio.emit('refresh', request.sid, room=request.sid)
 
 @socketio.on("register")
@@ -146,26 +146,23 @@ def create(data):
     create_account(username, password)
     if try_to_login(username, password):
         print('Redirect!')
-        CURRENT_USERS[request.sid].logged_in = True
+        CURRENT_USERS[str(request.sid)].logged_in = True
         socketio.emit('refresh', request.sid, room=request.sid)
 
 @app.route("/")
 def index():
     '''Display the home screen'''
-    return render_template('index.html')
-
-@app.route("/<_id>")
-def home(_id):
-    print _id
-    return render_template('index.html')
+    print CURRENT_USERS
+    _id = request.cookies['id']
+    print _id, '!'
+    try:
+        if CURRENT_USERS[_id].logged_in:
+            return render_template('index.html')
+    except:
+        return 'Not logged in'
 
 @app.route("/login")
 def login():
-    # sid = request.sid
-    # if CURRENT_USERS[request.sid].logged_in:
-    #     return render_template('index.html')
-    # else:
-    #     return render_template('login.html')
     return render_template('login.html')
 
 @app.route("/about")
