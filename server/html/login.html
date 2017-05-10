@@ -10,79 +10,12 @@
     <link rel- "stylesheet" type="text/css" href="{{ url_for('static', filename='./css/normal.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/login.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-
     <link rel="icon" href="{{ url_for('static', filename='./images/logo.png') }}">
-
-    <meta name="google-signin-client_id" content="433901103775-8jkmouhrnvkmk5mm8bd6opm42e13c9rg.apps.googleusercontent.com">
 </head>
 
-<div id="fb-root"></div>
-<script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-
 <body>
-    <!--  MOVE THIS TO JS FOLDER LATER  -->
-    <script>
-        function toggleSignUp() {
-            var ele1 = document.getElementById("toggleEmailConfirmation");
-            var ele2 = document.getElementById("togglePasswordConfirmation");
-            var text = document.getElementById("displayText");
-            if (ele1.style.display == "block") {
-                ele1.style.display = "none";
-                ele2.style.display = "none";
-                text.innerHTML = "Signing Up";
-            } else {
-                ele1.style.display = "block";
-                ele2.style.display = "block";
-                text.innerHTML = "Already Have an Account";
-            }
-        }
-
-        function check(input, box) {
-            if (input.value != document.getElementById(box).value) {
-                input.setCustomValidity('Field Must be Matching.');
-            } else {
-                input.setCustomValidity('');
-            }
-        }
-    </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <script src="https://apis.google.com/js/api:client.js"></script>
-    <!--
-    <script>
-        var googleUser = {};
-        var startApp = function () {
-            gapi.load('auth2', function () {
-                // Retrieve the singleton for the GoogleAuth library and set up the client.
-                auth2 = gapi.auth2.init({
-                    client_id: '433901103775-8jkmouhrnvkmk5mm8bd6opm42e13c9rg.apps.googleusercontent.com'
-                    , cookiepolicy: 'single_host_origin', // Request scopes in addition to 'profile' and 'email'
-                    //scope: 'additional_scope'
-                });
-                attachSignin(document.getElementById('g-signin2'));
-            });
-        };
-
-        function attachSignin(element) {
-            console.log(element.id);
-            auth2.attachClickHandler(element, {}, function (googleUser) {
-                document.getElementById('name').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
-            }, function (error) {
-                alert(JSON.stringify(error, undefined, 2));
-            });
-        }
-    </script>
--->
     <div class="row">
         <div class="row-height">
             <div class="col-sm-4 col-sm-offset-3">
@@ -91,30 +24,16 @@
                         <div class="box-icon"><img src="../static/images/slogo.svg"><span class="fa fa-4x fa-html5"></span> </div>
                         <div class="info">
                             <h4 class="text-center">gather</h4>
-                            <form class="form-group" action="http://localhost:5000/tryLogin" method="Post">
-                                <div>
-                                    <label for="email">Email Address:</label>
-                                    <input type="email" class="form-control" id="email" name="email"> </div>
-                                <br>
-                                <div class="confirmations" id="toggleEmailConfirmation" style="display: none">
-                                    <div class="form-group">
-                                        <label for="email">Confirm Email Address:</label>
-                                        <input type="email" class="form-control" id="email-conf" oninput="check(this, 'email')"> </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Password:</label>
-                                    <input type="password" class="form-control" id="pwd" name="pwd"> </div>
-                                <div class="confirmations" id="togglePasswordConfirmation" style="display: none">
-                                    <div class="form-group">
-                                        <label for="pwd">Confirm Password:</label>
-                                        <input type="password" class="form-control" id="pwd-conf" oninput="check(this, 'pwd')"> </div>
-                                </div>
-                                <script>
-                                    startApp();
-                                </script>
-                                <a class="btn btn-info" id="displayText" href="javascript:toggleSignUp();">Register</a>
-                                <input id="submitLogin" class="btn btn-primary" type="button" value="Submit"></input>
-                            </form>
+                            <div class="form-group">
+                                <label for="email">Email Address:</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd" name="pwd">
+                            </div>
+                            <input id="submitRegister" class="btn btn-info" type="button" value="Register"></input>
+                            <input id="submitLogin" class="btn btn-primary" type="button" value="Submit"></input>
                         </div>
                     </div>
                 </div>
@@ -146,50 +65,7 @@
     </div>
 
 </body>
-<script>
-    var socket = io.connect('http://' + document.domain + ':' + location.port, {
-        'sync disconnect on unload': true
-    });
 
-    function toggleSignUp() {
-        var ele1 = document.getElementById("toggleEmailConfirmation");
-        var ele2 = document.getElementById("togglePasswordConfirmation");
-        var text = document.getElementById("displayText");
-        if (ele1.style.display == "block") {
-            ele1.style.display = "none";
-            ele2.style.display = "none";
-            text.innerHTML = "Register";
-        } else {
-            ele1.style.display = "block";
-            ele2.style.display = "block";
-            text.innerHTML = "Not Registering";
-        }
-    }
-
-    function check(input, box) {
-        if (input.value != document.getElementById(box).value) {
-            input.setCustomValidity('Field Must be Matching.');
-        } else {
-            // input is valid -- reset the error message
-            input.setCustomValidity('');
-        }
-    }
-    $("#submitLogin").click(function() {
-        var email = $('#email').val();
-        var password = $('#pwd').val();
-        var emailConf = $('#email-conf').val();
-        var passConf = $('#pwd-conf').val();
-        console.log(email, password);
-        console.log(emailConf, passConf);
-        socket.emit('login', {
-            'password': password,
-            username: email
-        });
-    });
-
-    socket.on('refresh', function() {
-        console.log('refresh...');
-    });
-</script>
+<script src="{{ url_for('static', filename='./js/login.js') }}"></script>
 
 </html>

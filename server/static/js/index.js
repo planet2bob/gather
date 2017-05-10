@@ -8,11 +8,12 @@ var messages = [{
 var canMerge;
 var c1;
 var c2;
-
 var socket = io.connect('http://' + document.domain + ':' + location.port, { 'sync disconnect on unload': true });
+
 socket.on('num_users', function(num) {
     console.log('num-users: ' + num);
 });
+
 socket.on('id', function(id) {
     console.log('id: ' + id);
 })
@@ -39,6 +40,32 @@ socket.on('message', function(data) {
 //     socket.emit('dc');
 //     console.log('!');
 // }
+
+function createCookie(name, value, days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        var expires = "; expires=" + date.toGMTString();
+    } else var expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name, "", -1);
+}
+
+console.log(readCookie('id'));
 
 var sortables = $(".contact");
 var draggedItem;

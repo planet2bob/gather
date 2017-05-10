@@ -136,26 +136,36 @@ def verify(data):
         print('Redirect!')
         # print CURRENT_USERS[request.sid]
         CURRENT_USERS[request.sid].logged_in = True
-    socketio.emit('refresh', room=request.sid)
+        socketio.emit('refresh', request.sid, room=request.sid)
 
-@socketio.on("create")
+@socketio.on("register")
 def create(data):
     password = data['password']
     username = data['username']
     print('Making account:', username, password)
     create_account(username, password)
-    # if try_to_login(username, password):
-    #     print('Redirect!')
-    #     CURRENT_USERS[request.sid].logged_in = True
-    socketio.emit('refresh', room=request.sid)
+    if try_to_login(username, password):
+        print('Redirect!')
+        CURRENT_USERS[request.sid].logged_in = True
+        socketio.emit('refresh', request.sid, room=request.sid)
 
 @app.route("/")
 def index():
     '''Display the home screen'''
     return render_template('index.html')
 
+@app.route("/<_id>")
+def home(_id):
+    print _id
+    return render_template('index.html')
+
 @app.route("/login")
 def login():
+    # sid = request.sid
+    # if CURRENT_USERS[request.sid].logged_in:
+    #     return render_template('index.html')
+    # else:
+    #     return render_template('login.html')
     return render_template('login.html')
 
 @app.route("/about")
