@@ -7,9 +7,9 @@ ACCESS_KEY = session.get_credentials().access_key
 SECRET_KEY = session.get_credentials().secret_key
 SESSION_TOKEN = session.get_credentials().token
 
-dynamodb = boto3.resource('dynamodb', 
-                            aws_access_key_id=ACCESS_KEY, 
-                            aws_secret_access_key=SECRET_KEY, 
+dynamodb = boto3.resource('dynamodb',
+                            aws_access_key_id=ACCESS_KEY,
+                            aws_secret_access_key=SECRET_KEY,
                             aws_session_token=SESSION_TOKEN,
                             region_name='us-west-2')
 
