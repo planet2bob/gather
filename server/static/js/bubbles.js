@@ -19,6 +19,7 @@ function displayMessage(text) {
 (function () {
     var Message;
     Message = function (arg) {
+        console.log(arg.text);
         this.text = arg.text, this.message_side = arg.message_side;
         this.draw = function (_this) {
             return function () {
