@@ -1,22 +1,25 @@
-$('.chat[data-chat=person2]').addClass('active-chat');
-$('.person[data-chat=person2]').addClass('active');
-$('.left .person').mousedown(function () {
-    if ($(this).hasClass('.active')) {
-        return false;
-    }
-    else {
-        var findChat = $(this).attr('data-chat');
-        var personName = $(this).find('.name').text();
-        $('.right .top .name').html(personName);
-        $('.chat').removeClass('active-chat');
-        $('.left .person').removeClass('active');
-        $(this).addClass('active');
-        $('.chat[data-chat = ' + findChat + ']').addClass('active-chat');
-    }
-});
+function displayMessage(text) {
+    var message = document.createElement("div");
+
+    message.style.margin = "40px";
+    message.style.display = "inline-block";
+    message.style.position = "relative";
+    message.style.width = "200px";
+    message.style.height = "50px";
+    message.style.backgroundColor = "lightyellow";
+    message.innerHTML = text;
+    message.style.padding = "1em";
+    message.style.textAlign = "left";
+    message.style.lineHeight = "1.5em";
+    message.style.position = "relative"
+
+    document.getElementById("2").appendChild(message);
+}
+
 (function () {
     var Message;
     Message = function (arg) {
+        console.log(arg.text);
         this.text = arg.text, this.message_side = arg.message_side;
         this.draw = function (_this) {
             return function () {
@@ -46,10 +49,10 @@ $('.left .person').mousedown(function () {
             }
             $('.message_input').val('');
             $messages = $('.messages');
-            message_side = message_side === 'left' ? 'right' : 'left';
+            message_side = 'right';
             message = new Message({
-                text: text
-                , message_side: message_side
+                text: text,
+                message_side: message_side
             });
             message.draw();
             return $messages.animate({
@@ -64,12 +67,5 @@ $('.left .person').mousedown(function () {
                 return sendMessage(getMessageText());
             }
         });
-        sendMessage('Hello Philip! :)');
-        setTimeout(function () {
-            return sendMessage('Hi Sandy! How are you?');
-        }, 1000);
-        return setTimeout(function () {
-            return sendMessage('I\'m fine, thank you!');
-        }, 2000);
     });
 }.call(this));

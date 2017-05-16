@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>testing chat bubbles</title>
+    <meta name="description" content="Bubble Test">
+    <meta name="author" content="cw">
+
+    <link rel="stylesheet" href="../static/css/bubbles.css">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/bubbles.js"></script>
+    <div id="main">
+
+        <div class="chat_window" id="1">
+            <ul class="messages" id="2"></ul>
+            <div class="bottom_wrapper clearfix" id="3">
+                <div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div>
+                <div class="send_message">
+                    <div class="icon"></div>
+                    <div class="text">Send</div>
+                </div>
+            </div>
+        </div>
+        <div class="message_template">
+            <li class="message">
+                <div class="avatar"></div>
+                <div class="text_wrapper">
+                    <div class="text"></div>
+                </div>
+            </li>
+        </div>
+    </div>
+</body>
+
+</html>
