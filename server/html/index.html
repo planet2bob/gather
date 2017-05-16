@@ -151,13 +151,13 @@
       <div class="container-fluid" id="messages-box">
        <div class="chat_window" id="1">
             <ul class="messages" id="2"></ul>
-            <div class="bottom_wrapper clearfix" id="3">
+            <!-- <div class="bottom_wrapper clearfix" id="3">
                 <div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div>
                 <div class="send_message">
                     <div class="icon"></div>
                     <div class="text">Send</div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="message_template">
             <li class="message">
@@ -173,7 +173,8 @@
 
       <div class="container-fluid">
 
-        <div class="col-sm-1" style="width: 7%">
+        <div id="messaging_box">
+                <div style="width: 7%; float: left">
 
           <div class="dropup">
             <button class="btn btn-default dropdown-toggle" type="button" id="platform" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -208,13 +209,15 @@
           </div>
 
         </div>
-
-        <div class="col-sm-11" style="width: 93%">
-          <form role="form">
-            <div class="form-group">
-                <textarea class="form-control" id="own-message" rows="4" required></textarea>
-            </div>
-          </form>
+        <div style="width: 92%; float: left">
+            <div class="bottom_wrapper clearfix" id="3">
+                  <div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div>
+                  <div class="send_message">
+                      <div class="icon"></div>
+                      <div class="text">Send</div>
+                  </div>
+              </div>
+              </div>
         </div>
 
       </div>

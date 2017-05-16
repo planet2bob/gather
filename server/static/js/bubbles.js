@@ -1,17 +1,8 @@
 function displayMessage(text) {
     var message = document.createElement("div");
 
-    message.style.margin = "40px";
-    message.style.display = "inline-block";
-    message.style.position = "relative";
-    message.style.width = "200px";
-    message.style.height = "50px";
-    message.style.backgroundColor = "lightyellow";
     message.innerHTML = text;
-    message.style.padding = "1em";
-    message.style.textAlign = "left";
-    message.style.lineHeight = "1.5em";
-    message.style.position = "relative"
+    message.classList.add('right');
 
     document.getElementById("2").appendChild(message);
 }
