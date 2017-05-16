@@ -119,6 +119,13 @@ def disconnect():
     # socketio.emit('num_users', len(CURRENT_USERS))
     # print('disconnect: %s' % str(sid))
 
+@socketio.on('contacts')
+def get_contacts():
+    socketio.emit('contacts', [
+        {'username': 'max', 'service': 'skype'},
+        {'username': 'chris', 'service': 'discord'},
+        {'username': 'andrew', 'service': 'steam'}])
+
 @socketio.on('acc_info')
 def login_account(data):
     print(data)

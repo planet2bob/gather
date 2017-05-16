@@ -25,6 +25,10 @@ socket.on('message', function(data) {
     messages.push(data);
     renderMessages();
 });
+
+function getContacts() {
+    socket.emit('contacts');
+}
 // document.getElementById('submit').onclick = function() {
 //     var username = document.getElementById('user').value;
 //     var password = document.getElementById('pass').value;
@@ -201,7 +205,6 @@ $('#save-name-btn').click(function() {
     $('#edit-name-modal').modal('hide');
 
 })
-
 
 function renderContacts() {
     return;
