@@ -1,4 +1,4 @@
-function renderContacts() { // function renderContacts(list of contacts) {
+function rc() { // function renderContacts(list of contacts) {
 
     var contactList = document.createElement('ul'); //document.getElementById("contact-list");
 
@@ -9,7 +9,7 @@ function renderContacts() { // function renderContacts(list of contacts) {
     	
 
 		var row = document.createElement('li');
-		if (i == 1) {
+		if (i == 0) {
         	row.className = "panel panel-info list-group-item justify-content-between active contact text-primary";
         }
         else {
@@ -67,31 +67,6 @@ function renderContacts() { // function renderContacts(list of contacts) {
 
         contactList.appendChild(row);
 
-    	// <li class="panel panel-info list-group-item justify-content-between active contact text-primary" id= contactId>
-    	// contactName
-
-    	// <span class="btn-group pull-right edit-button">
-	    //     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	    //       <span class="fa fa-pencil-square-o"></span>
-	    //     </button>
-
-	    //     <ul class="dropdown-menu" role="menu">
-	    //         <li data-toggle="modal" data-target="#edit-name-modal" class="open-edit-name-modal" data-id= contactId><a href="#">Edit name</a></li>
-	    //         <li class="delete-contact" data-id= contactId><a href="#">Delete contact</a>
-	    //         </li>
-	    //     </ul>
-	    //   </span>
-
-	    // </li>
-
-
-
 	}
 
-	console.log(contactList.innerHTML);
-
-    console.log(document.getElementsByClassName('active contact')[0].id);
-
 }
-
-renderContacts();
