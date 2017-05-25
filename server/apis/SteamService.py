@@ -53,8 +53,8 @@ class SteamService(GatherService):
     def convert_message(self, contact_name, steam_msg):
         body = str(steam_msg.message)
         senderID = steam_msg.steam_id
-        sender = self.get_Recipient_Name(contact_name, senderID)
-        recipient = self.get_Recipient_Name(contact_name, sender_ID, steam_msg)
+        sender = self.get_Name(senderID)
+        recipient = self.get_Recipient_Name(contact_name, sender_ID)
         time = self.convertDate(steam_msg.timestamp)
         return GatherMessage.GatherMessage(body, sender, recipient, time)
 
@@ -65,3 +65,11 @@ class SteamService(GatherService):
         if(senderID == self.me.id):
             return contact
         return self.me.name
+
+    def get_Name(self, senderID):
+        if(senderID == self.me.ID):
+            return self.me.name
+        dict = {}
+        for person in self.me.friends:
+            dict[person.id] = person.name
+        return dict[senderID]
