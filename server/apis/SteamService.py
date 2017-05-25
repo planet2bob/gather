@@ -2,6 +2,7 @@ import steamapi
 import vsteamapi
 from datetime import datetime
 from GatherService import GatherService
+import GatherMessage
 
 class SteamService(GatherService):
     
@@ -33,15 +34,13 @@ class SteamService(GatherService):
         gather_msgs = []
         for m in steam_msgs:
             gather_msgs.append(self.convert_message(contact_name,m))
+        return gather_msgs
     
     def send_message(self, contact_name, message):
-        try:
-            self.steam.chat.login()
-            steam.chat.send_message(self.get_ID(contact_name), message)
-            self.steam.chat.logout()
-            return True
-        except:
-            return False
+        self.steam.chat.login()
+        self.steam.chat.send_message(self.get_ID(contact_name), message)
+        self.steam.chat.logout()
+        return True
 
     def get_ID(self, contact_name):
         #gets steam id from contact name
@@ -54,7 +53,9 @@ class SteamService(GatherService):
         body = str(steam_msg.message)
         senderID = steam_msg.steam_id
         sender = self.get_Name(senderID)
-        recipient = self.get_Recipient_Name(contact_name, sender_ID)
+        print(sender)
+        recipient = self.get_Recipient_Name(contact_name, senderID)
+        print(recipient)
         time = self.convertDate(steam_msg.timestamp)
         return GatherMessage.GatherMessage(body, sender, recipient, time)
 
@@ -62,12 +63,12 @@ class SteamService(GatherService):
         return datetime.fromtimestamp(tstamp/1000)
 
     def get_Recipient_Name(self, contact, senderID):
-        if(senderID == self.me.id):
+        if(str(senderID) == str(self.me.id)):
             return contact
         return self.me.name
 
     def get_Name(self, senderID):
-        if(senderID == self.me.ID):
+        if(str(senderID) == str(self.me.id)):
             return self.me.name
         dict = {}
         for person in self.me.friends:
